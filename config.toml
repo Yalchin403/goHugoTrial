@@ -1,0 +1,21 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = "Yalchin's Blog"
+theme = "hello-friend-ng"
+#theme = "hugo-theme-terminal"
+themeColor = "pink"
+
+ [[menu.main]]
+    identifier = "blog"
+    name       = "Blog"
+    url        = "/posts"
+
+[[menu.main]]
+    identifier = "resume"
+    name       = "Resume"
+    url        = "/resume/cv.pdf"
+
+[[menu.main]]
+    identifier = "contact"
+    name       = "Contact"
+    url        = "/personal/contact"
