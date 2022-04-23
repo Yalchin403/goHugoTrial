@@ -1,4 +1,4 @@
-baseURL = 'https://yalchin403.github.io/'
+baseURL = 'blog.yalchin.ml/'
 languageCode = 'en-us'
 title = "Yalchin's Blog"
 buildDrafts = true
