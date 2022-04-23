@@ -1,16 +1,14 @@
 baseURL = '/'
 languageCode = 'en-us'
 title = "Yalchin's Blog"
+buildDrafts = false
 paginate = 5
 theme = "hugo-theme-hello-friend-ng"
 
 
-[params]
-  defaultTheme = "dark"
-  showReadingTime = true
-
 [languages]
     [languages.en]
+    languageName = "English"
     title = "Yalchin's Blog"
     subtitle = "Notes about the things I learn"
     keywords = "Yalchin Mammadli Software Developer Python Golang Node.js"
@@ -28,7 +26,7 @@ theme = "hugo-theme-hello-friend-ng"
 [[menu.main]]
     identifier = "blog"
     name       = "Blog"
-    url        = "/blog"
+    url        = "/posts"
 
 [[menu.main]]
     identifier = "resume"

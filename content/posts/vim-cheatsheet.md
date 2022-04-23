@@ -5,10 +5,10 @@ draft: false
 cover: "blog-images/vim.png"
 useRelativeCover: true
 tags: ["Vim", "Cheatsheet"]
+images:
+tags:
+  - untagged
 ---
-
-
-
 | **No** | **Command**      | **Meaning**                                                                                                                                      |
 |--------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1      | :w               | Save                                                                                                                                             |

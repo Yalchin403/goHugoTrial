@@ -5,8 +5,9 @@ draft: false
 cover: "blog-images/github_ssh_key.png"
 useRelativeCover: true
 tags: ["GitHub", "Security"]
----
 
+
+---
 **Github SSH Key set up**
 
 This tutorial will help you to be able to set up SSH key connection to your github account on a **Linux** machine. You can also continue to read this tutorial if you want to set up **_Deploy Keys_**.
