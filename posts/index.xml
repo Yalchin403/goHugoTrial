@@ -1,0 +1,539 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Yalchin's Blog</title><link>/posts/</link><description>Recent content in Posts on Yalchin's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Yalchin Mammadli</copyright><lastBuildDate>Sat, 23 Apr 2022 23:03:25 +0400</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Map, Sort, and Filter Functions in Python</title><link>/posts/map-sort-and-filter-functions-in-python/</link><pubDate>Sat, 23 Apr 2022 23:03:25 +0400</pubDate><guid>/posts/map-sort-and-filter-functions-in-python/</guid><description>This tutorial will help you to see real example of using map, sort, and filter functions along with lambda functions in Python.
+Map Function Example
+Python&amp;rsquo;s map() is a built-in function that allows you to process and transform all the items in an iterable without using an explicit for loop, a technique commonly known as mapping. map() is useful when you need to apply a transformation function to each item in an iterable and transform them into a new iterable.</description><content type="html"><![CDATA[<p>This tutorial will help you to see real example of using map, sort, and filter functions along with lambda functions in Python.</p>
+<p><strong>Map Function Example</strong></p>
+<p>Python&rsquo;s map() is a built-in function that allows you to process and transform all the items in an iterable without using an explicit for loop, a technique commonly known as mapping. map() is useful when you need to apply a transformation function to each item in an iterable and transform them into a new iterable.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    target_list <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>] 
+</span></span><span style="display:flex;"><span>    func <span style="color:#f92672">=</span> <span style="color:#66d9ef">lambda</span> element: element <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    print(list(map(func, target_list)))
+</span></span></code></pre></div><p><strong>Sort Function Example</strong></p>
+<p>The sort() method sorts the elements of an array in place and returns the sorted array. The default sort order is ascending, built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    users <span style="color:#f92672">=</span> [(<span style="color:#e6db74">&#34;Yalchin&#34;</span>, <span style="color:#e6db74">&#34;age&#34;</span>, <span style="color:#ae81ff">20</span>), (<span style="color:#e6db74">&#34;Coder&#34;</span>, <span style="color:#e6db74">&#34;age&#34;</span>, <span style="color:#ae81ff">19</span>)]
+</span></span><span style="display:flex;"><span>    func <span style="color:#f92672">=</span> <span style="color:#66d9ef">lambda</span> user: user[<span style="color:#ae81ff">2</span>]
+</span></span><span style="display:flex;"><span>    users<span style="color:#f92672">.</span>sort(key<span style="color:#f92672">=</span>func,reverse<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>    print(users)
+</span></span></code></pre></div><p><strong>Filter Function Example</strong></p>
+<p>The filter() method constructs an iterator from elements of an iterable for which a function returns true. In simple words, filter() method filters the given iterable with the help of a function that tests each element in the iterable to be true or not.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    ages <span style="color:#f92672">=</span> [<span style="color:#ae81ff">18</span>, <span style="color:#ae81ff">33</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">23</span>]
+</span></span><span style="display:flex;"><span>    func <span style="color:#f92672">=</span> <span style="color:#66d9ef">lambda</span> age: age <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">18</span>
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> filter(func, ages)
+</span></span><span style="display:flex;"><span>    print(list(x))
+</span></span></code></pre></div>]]></content></item><item><title>How to Set Up Supervisor Service</title><link>/posts/how-to-set-up-supervisor-service/</link><pubDate>Sat, 23 Apr 2022 22:53:12 +0400</pubDate><guid>/posts/how-to-set-up-supervisor-service/</guid><description>This tutorial will help you to run any application in the background with the help of &amp;ldquo;Supervisor&amp;rdquo;. For this tutorial specifically, I&amp;rsquo;m going to show how we can set up discord.py bot with &amp;ldquo;Supervisor&amp;rdquo;, however, this is not the limitation. You can set up any application you want with &amp;ldquo;Supervisor&amp;rdquo;. I will state essential commands, and also will show you an example configuration file, that you can use to set up your application.</description><content type="html"><![CDATA[<p>This tutorial will help you to run any application in the background with the help of &ldquo;Supervisor&rdquo;. For this tutorial specifically, I&rsquo;m going to show how we can set up discord.py bot with &ldquo;Supervisor&rdquo;, however, this is not the limitation. You can set up any application you want with &ldquo;Supervisor&rdquo;. I will state essential commands, and also will show you an example configuration file, that you can use to set up your application.<br>
+For this tutorial I assume that you are using <strong>Ubuntu Linux as your OS or any other debian based Linux distro</strong>, and you have already installed supervisor in your machine.</p>
+<p><strong>Creating Configutation File</strong></p>
+<p>You configuration file should be located in</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    /etc/supervisor/conf.d
+</span></span></code></pre></div><p>So, navigate to the target location and create your configuration file. For my example we can name it as disbot.conf To navigate to /etc/supervisor/conf.d use following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    cd /etc/supervisor/conf.d
+</span></span></code></pre></div><p>You can create your configuration file in the terminal by writing following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    touch disbot.conf
+</span></span></code></pre></div><p>Make sure name of your configuration file correspons to your project</p>
+<p><strong>Writing Configuration FIle</strong></p>
+<p>Now we are ready to edit our conf file, open up the conf file that you just created with you favorite editor, in my case I&rsquo;m using vim as file editor, but nano would also be one of the best choices. To open the file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    vim disbot.conf
+</span></span></code></pre></div><p>Switch to insert mode by pressing i, and you need to provide information as given in the example configuration file below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    command<span style="color:#f92672">=</span>/usr/bin/python3 /home/root/bots/disbot.py
+</span></span><span style="display:flex;"><span>    directory <span style="color:#f92672">=</span> /home/root/bots
+</span></span><span style="display:flex;"><span>    autostart<span style="color:#f92672">=</span>true
+</span></span><span style="display:flex;"><span>    autorestart<span style="color:#f92672">=</span>true
+</span></span><span style="display:flex;"><span>    stderr_logfile<span style="color:#f92672">=</span>/var/log/disbot/err.log
+</span></span><span style="display:flex;"><span>    stdout_logfile<span style="color:#f92672">=</span>/var/log/disbot/out.log
+</span></span></code></pre></div><p>Let&rsquo;s break these lines of commands one by one:<br>
+So the first command, as it seems from its name, should be a command to run your application, in our case we run our disbot.py as:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    python3 disbot.py
+</span></span></code></pre></div><p>So, we need to specify where python3 is and where our file is to run the application.</p>
+<p>Second command is about showing your top level directory which encompasses your application.</p>
+<p>Third, and fourth commands is to auto start/restart the service.</p>
+<p>Last two lines specify the log files to store any out or err logs.</p>
+<p>After you are done with these configuration make sure that you save the file and exit by using :wq (this command will not work if you use other editor) and then go to /var/log/ directory by using following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    cd /var/log
+</span></span></code></pre></div><p>And create a folder to store your log files as specified in the conf file. You do not need to create log files, just creating folder specified in the conf file is enough.<br>
+In our case, we specified folder name as disbot so we can go ahead and create one by:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    mkdir disbot
+</span></span></code></pre></div><p><strong>Activating The Service</strong></p>
+<p>Now you just need to execute following commands, to make sure that supervisor recognize the conf file and will be able to run it without any problem:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    sudo supervisorctl reread
+</span></span><span style="display:flex;"><span>    sudo supervisorctl update
+</span></span></code></pre></div><p>To make sure that service is up and running you can check its status by using the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    sudo supervisorctl status
+</span></span></code></pre></div><p>You will see name of your service that you specified in conf file and it will look something like this:</p>
+<p><a href="https://yalchin.info/media/images/supervisor_status.jpg"><img src="https://yalchin.info/media/images/supervisor_status.jpg" alt=""></a></p>
+<p>If you set up everything properly, service status should be &ldquo;running&rdquo;. However, if you see its not running make sure that, you configured your conf file properly, and check your log files to see what the error is.</p>
+<p>Following two commands may also be useful for you when you need to restart, start, or stop the service:</p>
+<p>Make sure you use name of your own service instead of disbot</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    sudo supervisorctl restart disbot
+</span></span><span style="display:flex;"><span>    sudo supervisorctl start disbot
+</span></span><span style="display:flex;"><span>    sudo supervisorctl stop disbot
+</span></span></code></pre></div><p>Thanks for reading!</p>
+]]></content></item><item><title>How to Set Up GitHub Ssh Key</title><link>/posts/how-to-set-up-github-ssh-key/</link><pubDate>Sat, 23 Apr 2022 20:49:33 +0400</pubDate><guid>/posts/how-to-set-up-github-ssh-key/</guid><description>Github SSH Key set up
+This tutorial will help you to be able to set up SSH key connection to your github account on a Linux machine. You can also continue to read this tutorial if you want to set up Deploy Keys.
+For now let&amp;rsquo;s just assume that you&amp;rsquo;ve successfully set up SSH key, after that you need to make sure that you don&amp;rsquo;t access your repo with HTTPS, but with ssh, so if you previously cloned your repo wirh https set it to ssh as below:</description><content type="html"><![CDATA[<p><strong>Github SSH Key set up</strong></p>
+<p>This tutorial will help you to be able to set up SSH key connection to your github account on a <strong>Linux</strong> machine. You can also continue to read this tutorial if you want to set up <strong><em>Deploy Keys</em></strong>.</p>
+<p>For now let&rsquo;s just assume that <strong>you&rsquo;ve successfully set up SSH key</strong>, after that you need to make sure that you don&rsquo;t access your repo with HTTPS, but with ssh, so if you previously cloned your repo wirh https set it to ssh as below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    git remote set-url origin git@github.com:yourUsername/nameOfRepo.git
+</span></span></code></pre></div><p>Now let&rsquo;s come back to SSH generation part&hellip;</p>
+<p>Navigate to <code>~/.ssh</code> directory
+Execute:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span> -C <span style="color:#e6db74">&#34;yourGithubEmail&#34;</span>
+</span></span></code></pre></div><p>If you press enter:</p>
+<p>By default id_rsa named public and private keys will be generated.</p>
+<p>You can also specify it</p>
+<p>Then will be prompted to enter passphrase</p>
+<p>You can again press enter and skip it (you won&rsquo;t have passphrase in this case), or you can set up passphrase by specifying</p>
+<p>Now keys should be generated.</p>
+<p>(execute ls to see them)</p>
+<ul>
+<li>Copy content of public key (generated file with .pub extension)</li>
+<li>Go to ssh key section of github in the settings</li>
+<li>Click on new ssh key</li>
+<li>Give a title</li>
+<li>In the publick key box, paste what you&rsquo;ve copied.</li>
+<li>Save it.</li>
+</ul>
+<p>Now come back to terminal, in the .ssh directory, create config file</p>
+<p>You can create by either:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    touch config
+</span></span></code></pre></div><p>Or</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    vi config
+</span></span></code></pre></div><p>Paste this into config file</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    Host github.com
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    User git
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    Port <span style="color:#ae81ff">22</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    Hostname github.com
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    IdentityFile ~/.ssh/nameOfYourPrivateKey
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    TCPKeepAlive yes
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    IdentiesOnly yes <span style="color:#75715e"># if it throws error about this line delete or comment out  </span>
+</span></span></code></pre></div><p><em>Here make sure that you changed IdentityFile&rsquo;s path with the path that points to your own private key</em></p>
+<p><strong>Save the file and exit</strong></p>
+<p>Execute
+following commands:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    eval <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>ssh-agent -s<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    ssh-add ~/.ssh/nameOfYourPrivateKey
+</span></span></code></pre></div><p>You should be good to go now :)</p>
+<p>Test your ssh connection by:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh -T github.com
+</span></span></code></pre></div><p>It should say you have successfully set up SSH key authentication if you have done so :)</p>
+<p>Thanks for reading!</p>
+]]></content></item><item><title>How to Set Up Mailgun in Django</title><link>/posts/how-to-set-up-mailgun-in-django/</link><pubDate>Sat, 23 Apr 2022 20:41:10 +0400</pubDate><guid>/posts/how-to-set-up-mailgun-in-django/</guid><description>In this tutorial, I will try to cover configuring a custom domain for sending emails in your application. The benefit of using mailgun is that it allows you to send (5,000) emails for free during the first three months (then you will pay $0.8 per 1,000 emails) and its setup procedure is so straightforward. You will only need to add your payment verification to be able to send emails without any restrictions.</description><content type="html"><![CDATA[<p>In this tutorial, I will try to cover configuring a custom domain for sending emails in your application. The benefit of using mailgun is that it allows you to send (5,000) emails for free during the first three months (then you will pay $0.8 per 1,000 emails) and its setup procedure is so straightforward. You will only need to add your payment verification to be able to send emails without any restrictions.</p>
+<h3 id="sign-up--sign-in"><strong>Sign up &amp; Sign in</strong></h3>
+<p><strong><img src="https://yalchin.info/media/images/mailgun-signup.png" alt=""></strong></p>
+<p>If you don&rsquo;t have an account yet, go to <a href="https://mailgun.com">mailgun</a> and sign up with your email, then add your payment verification.</p>
+<p>In the <strong>Domains</strong> section of the website, click on add new domain to include your custom domain. For this tutorial only, let&rsquo;s say our domain is yalchin.info. You can include only the domain name, but mailgun recommends including a subdomain, so I will continue with mg.yalchin.info.![](</p>
+<p>https:yalchin.info/media/images/mailgun-add-domain.png)</p>
+<p>After choosing the domain name click on <strong>Add Domain</strong> button.</p>
+<h3 id="adding-dns-records"><strong>Adding DNS Records</strong></h3>
+<p>After clicking to <strong>Add Domain</strong> button you will be prompted to a page to add DNS records and verify that you are the one who really owns the domain.</p>
+<p>Now go to your <strong>DNS provider</strong>, in my case I&rsquo;m using <strong>Namecheap</strong>. Navigate to advanced DNS settings, and start to add DNS records shown on mailgun domain verification page.</p>
+<p><img src="https://yalchin.info/media/images/mailgun-txt-record.png" alt=""></p>
+<p>Now, while adding txt records make sure that if you are using a subdomain like me (mg.yalchin.info), you don&rsquo;t need to add mg.yalchin.info for hostname, just include mg for the hostname or whatever you chose as a sub-name. <strong>Hence from now on, you don&rsquo;t need to include the original domain name while adding hostname, just include prefix before the original domain name. If you don&rsquo;t use a subdomain and instead you are using the original domain then put @ sign for the hostname.</strong> Then copy and paste appropriate values.</p>
+<p>The same procedure applies to adding <strong>CNAME and MX records.</strong> Just like this:</p>
+<p><img src="https://yalchin.info/media/images/mailgun-cname-record.png" alt=""></p>
+<p>After you are done, go back to mailgun DNS verification page, and click on verify button. If you added DNS records correctly, it will probably be verified within minutes, but theoretically, it can take 24-48 hours to be verified. After verifying, you are good to copy your credentials from mailgun and paste into <strong>settings.py</strong> in your django project. Just like shown beneath:</p>
+<h3 id="setup-settingspy"><strong>Setup settings.py</strong></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    EMAIL_HOST <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;smtp.mailgun.org&#39;</span>
+</span></span><span style="display:flex;"><span>    EMAIL_PORT <span style="color:#f92672">=</span> <span style="color:#ae81ff">587</span>
+</span></span><span style="display:flex;"><span>    EMAIL_HOST_USER <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;mg@mail.yalchin.info&#39;</span>
+</span></span><span style="display:flex;"><span>    EMAIL_HOST_PASSWORD <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;yourSupersecrectPassword&#39;</span>
+</span></span><span style="display:flex;"><span>    EMAIL_USE_TLS <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span></code></pre></div><p><strong>Warning:</strong></p>
+<p><strong>Do not include your password</strong> in the settings.py, but include them via the .env file and ignore the .env file with .gitignore; otherwise, your password can be leaked.</p>
+<h3 id="send-email"><strong>Send Email</strong></h3>
+<p>In order to send emails in Django, you can use libraries and code snippet below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#f92672">from</span> django.core.mail <span style="color:#f92672">import</span> send_mail
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">from</span> portfolio.settings <span style="color:#f92672">import</span> EMAIL_HOST_USER   <span style="color:#75715e"># import your email</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">from</span> django.core.mail <span style="color:#f92672">import</span> EmailMessage
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    email_body <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Yea we did it!&#34;</span>
+</span></span><span style="display:flex;"><span>    email <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;emailYouWantedToSendMessageTo@example.com&#34;</span>
+</span></span><span style="display:flex;"><span>    msg <span style="color:#f92672">=</span> EmailMessage(
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;First Email Ever&#34;</span>,
+</span></span><span style="display:flex;"><span>                    email_body,
+</span></span><span style="display:flex;"><span>                    EMAIL_HOST_USER,
+</span></span><span style="display:flex;"><span>                    [email]
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>                msg<span style="color:#f92672">.</span>content_subtype <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;html&#34;</span>   <span style="color:#75715e"># so that you can format you message with html tags</span>
+</span></span><span style="display:flex;"><span>                msg<span style="color:#f92672">.</span>send()
+</span></span></code></pre></div><p><strong>Thanks for reading!</strong></p>
+]]></content></item><item><title>How to Deploy NodeJs App</title><link>/posts/how-to-deploy-nodejs-app/</link><pubDate>Sat, 23 Apr 2022 20:33:34 +0400</pubDate><guid>/posts/how-to-deploy-nodejs-app/</guid><description>In this tutorial, we will be deploying a simple URL shortener API built-in express framework of NodeJs. It is pretty simple, uses MongoDB as its database, and you can find its source code: https://yalchin.ml/Cq93RQ.
+As a VPS, I use a Linode ubuntu server, and I assume that you have at least some basic knowledge when it comes to Linux.
+Install Node and NPM curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - sudo apt install nodejs # verify that bash is installed node --version Clone your Repo git clone [link to your github repo] Install npm dependency packages cd yourproject npm install npm start (or whatever your start command) # stop app ctrl+C To be able to run our app in the background continuously, we will be using a package called PM2.</description><content type="html"><![CDATA[<p>In this tutorial, we will be deploying a simple URL shortener API built-in express framework of NodeJs. It is pretty simple, uses MongoDB as its database, and you can find its source code: <a href="https://yalchin.ml/Cq93RQ">https://yalchin.ml/Cq93RQ</a>.</p>
+<p>As a VPS, I use a Linode ubuntu server, and I assume that you have at least some basic knowledge when it comes to Linux.</p>
+<h3 id="install-node-and-npm">Install Node and NPM</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    sudo apt install nodejs
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># verify that bash is installed</span>
+</span></span><span style="display:flex;"><span>    node --version
+</span></span></code></pre></div><h3 id="clone-your-repo">Clone your Repo</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    git clone <span style="color:#f92672">[</span>link to your github repo<span style="color:#f92672">]</span>
+</span></span></code></pre></div><h3 id="install-npm-dependency-packages">Install npm dependency packages</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    cd yourproject
+</span></span><span style="display:flex;"><span>    npm install
+</span></span><span style="display:flex;"><span>    npm start <span style="color:#f92672">(</span>or whatever your start command<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># stop app</span>
+</span></span><span style="display:flex;"><span>    ctrl+C
+</span></span></code></pre></div><p>To be able to run our app in the background continuously, we will be using a package called <strong>PM2</strong>. It is a daemon process manager that will help you manage and keep your application online.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    sudo npm i pm2 -g
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#(name of your appfile can be different)</span>
+</span></span><span style="display:flex;"><span>    pm2 start app
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Other pm2 commands</span>
+</span></span><span style="display:flex;"><span>    pm2 show app
+</span></span><span style="display:flex;"><span>    pm2 status
+</span></span><span style="display:flex;"><span>    pm2 restart app
+</span></span><span style="display:flex;"><span>    pm2 stop app
+</span></span><span style="display:flex;"><span>    pm2 logs <span style="color:#f92672">(</span>Show log stream<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    pm2 flush <span style="color:#f92672">(</span>Clear logs<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># To make sure app starts when reboot</span>
+</span></span><span style="display:flex;"><span>    pm2 startup ubuntu
+</span></span></code></pre></div><p>You should now be able to access your app using your IP and port. Now we want to set up a firewall blocking that port and set up NGINX as a reverse proxy so we can access it directly using port 80 (HTTP)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">### Set up a ufw firewall</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    sudo ufw enable
+</span></span><span style="display:flex;"><span>    sudo ufw status
+</span></span><span style="display:flex;"><span>    sudo ufw allow ssh <span style="color:#f92672">(</span>Port 22<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    sudo ufw allow http <span style="color:#f92672">(</span>Port 80<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    sudo ufw allow https <span style="color:#f92672">(</span>Port 443<span style="color:#f92672">)</span>
+</span></span></code></pre></div><h3 id="configure-and-install-nginx">Configure and install NGINX</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    sudo apt install nginx
+</span></span></code></pre></div><p>Navigate into</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    cd /etc/nginx/sites-enabled
+</span></span></code></pre></div><p>and create a config file for Nginx, name it as your domain. In my case my domain is api.kydev.ml, so I will be naming it as api.kydev.ml.conf . To create a file you can use the touch command or directly open a file with vim, if the file doesn&rsquo;t exist, vim will create a one and open it for you. So use the method below to create:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    touch api.kydev.ml.conf
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># OR</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    vim api.kydev.ml.conf
+</span></span></code></pre></div><p>If you are not familiar with vim, for now, use touch command but for the future, you can take a look at <a href="https://yalchin.info/blog/written-tutorial-on-vim/">this cheat sheet</a> to learn it.</p>
+<p>Open the file you have created with your favorite editor, in my case:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    sudo vim /etc/nginx/sites-available/api.kydev.ml.conf
+</span></span></code></pre></div><p>Add the following snippet, but don&rsquo;t forget to modify it for your needs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    server <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    server_name yourdomain.com www.yourdomain.com;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        location / <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            proxy_pass http://localhost:5000; <span style="color:#75715e">#whatever port your app runs on</span>
+</span></span><span style="display:flex;"><span>            proxy_http_version 1.1;
+</span></span><span style="display:flex;"><span>            proxy_set_header Upgrade $http_upgrade;
+</span></span><span style="display:flex;"><span>            proxy_set_header Connection <span style="color:#e6db74">&#39;upgrade&#39;</span>;
+</span></span><span style="display:flex;"><span>            proxy_set_header Host $host;
+</span></span><span style="display:flex;"><span>            proxy_cache_bypass $http_upgrade;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="check-nginx-config">Check NGINX config:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    <span style="color:#75715e"># Check NGINX config</span>
+</span></span><span style="display:flex;"><span>    sudo nginx -t
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Restart NGINX</span>
+</span></span><span style="display:flex;"><span>    sudo service nginx restart
+</span></span></code></pre></div><p>You should now be able to visit your IP with no port (port 80) and see your app. Now let&rsquo;s add a domain. <strong>Congrats!</strong></p>
+<h3 id="add-the-domain">Add the domain</h3>
+<p>Add an A record for @ and for www to your droplet, It may take a bit to propagate</p>
+<h3 id="add-ssl-with-letsencrypt">Add SSL with LetsEncrypt</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    sudo add-apt-repository ppa:certbot/certbot
+</span></span><span style="display:flex;"><span>    sudo apt-get update
+</span></span><span style="display:flex;"><span>    sudo apt-get install python-certbot-nginx
+</span></span><span style="display:flex;"><span>    sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Only valid for 90 days, test the renewal process with</span>
+</span></span><span style="display:flex;"><span>    certbot renew --dry-run
+</span></span></code></pre></div><p>You should now be able to visit your domain and see your Node app up and running securely!</p>
+<p><strong>Thanks for reading!</strong></p>
+]]></content></item><item><title>Vim Cheatsheet</title><link>/posts/vim-cheatsheet/</link><pubDate>Sat, 23 Apr 2022 20:21:07 +0400</pubDate><guid>/posts/vim-cheatsheet/</guid><description>No Command Meaning 1 :w Save 2 :q Quit 3 :q! Quit without saving 4 :wq Quit with saving 5 k Navigates up 6 j Navigates down 7 h Navigates left 8 l Navigates right 9 i Enter insert mode 10 esc or ctrl +[ Enter normal mode 11 gg Navigates to the top 12 G Navigates to bottom 13 H High: takes you to the top of your code 14 M Middle: takes you to the middle of your code 15 L Low: takes you to the bottom of your code 16 nG Navigates to n-th line (example - 3G navigates to 3rd line) 17 { Navigates one code block up 18 } Navigates one code block down 19 nk N lines up 20 nj N lines down 21 nh N lines left 22 nl n lines right 23 u Undo 24 ctrl + r Redo 25 .</description><content type="html"><![CDATA[<table>
+<thead>
+<tr>
+<th><strong>No</strong></th>
+<th><strong>Command</strong></th>
+<th><strong>Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>:w</td>
+<td>Save</td>
+</tr>
+<tr>
+<td>2</td>
+<td>:q</td>
+<td>Quit</td>
+</tr>
+<tr>
+<td>3</td>
+<td>:q!</td>
+<td>Quit without saving</td>
+</tr>
+<tr>
+<td>4</td>
+<td>:wq</td>
+<td>Quit with saving</td>
+</tr>
+<tr>
+<td>5</td>
+<td>k</td>
+<td>Navigates up</td>
+</tr>
+<tr>
+<td>6</td>
+<td>j</td>
+<td>Navigates down</td>
+</tr>
+<tr>
+<td>7</td>
+<td>h</td>
+<td>Navigates left</td>
+</tr>
+<tr>
+<td>8</td>
+<td>l</td>
+<td>Navigates right</td>
+</tr>
+<tr>
+<td>9</td>
+<td>i</td>
+<td>Enter insert mode</td>
+</tr>
+<tr>
+<td>10</td>
+<td>esc or ctrl +[</td>
+<td>Enter normal mode</td>
+</tr>
+<tr>
+<td>11</td>
+<td>gg</td>
+<td>Navigates to the top</td>
+</tr>
+<tr>
+<td>12</td>
+<td>G</td>
+<td>Navigates to bottom</td>
+</tr>
+<tr>
+<td>13</td>
+<td>H</td>
+<td>High: takes you to the top of your code</td>
+</tr>
+<tr>
+<td>14</td>
+<td>M</td>
+<td>Middle: takes you to the middle of your code</td>
+</tr>
+<tr>
+<td>15</td>
+<td>L</td>
+<td>Low: takes you to the bottom of your code</td>
+</tr>
+<tr>
+<td>16</td>
+<td>nG</td>
+<td>Navigates to n-th line (example - 3G navigates to 3rd line)</td>
+</tr>
+<tr>
+<td>17</td>
+<td>{</td>
+<td>Navigates one code block up</td>
+</tr>
+<tr>
+<td>18</td>
+<td>}</td>
+<td>Navigates one code block down</td>
+</tr>
+<tr>
+<td>19</td>
+<td>nk</td>
+<td>N lines up</td>
+</tr>
+<tr>
+<td>20</td>
+<td>nj</td>
+<td>N lines down</td>
+</tr>
+<tr>
+<td>21</td>
+<td>nh</td>
+<td>N lines left</td>
+</tr>
+<tr>
+<td>22</td>
+<td>nl</td>
+<td>n lines right</td>
+</tr>
+<tr>
+<td>23</td>
+<td>u</td>
+<td>Undo</td>
+</tr>
+<tr>
+<td>24</td>
+<td>ctrl + r</td>
+<td>Redo</td>
+</tr>
+<tr>
+<td>25</td>
+<td>. (period)</td>
+<td>Do it again</td>
+</tr>
+<tr>
+<td>26</td>
+<td>yy</td>
+<td>Copy</td>
+</tr>
+<tr>
+<td>27</td>
+<td>P</td>
+<td>Paste above</td>
+</tr>
+<tr>
+<td>28</td>
+<td>p</td>
+<td>Paste below</td>
+</tr>
+<tr>
+<td>29</td>
+<td>v</td>
+<td>Switches to visual mode</td>
+</tr>
+<tr>
+<td>30</td>
+<td>o</td>
+<td>Adds new line below and enters insert mode</td>
+</tr>
+<tr>
+<td>31</td>
+<td>O</td>
+<td>Adds new line up and puts you inside insert mode</td>
+</tr>
+<tr>
+<td>32</td>
+<td>w</td>
+<td>Navigate to next word</td>
+</tr>
+<tr>
+<td>33</td>
+<td>b</td>
+<td>Navigate to previous word</td>
+</tr>
+<tr>
+<td>34</td>
+<td>:n</td>
+<td>Takes you to the n-th line</td>
+</tr>
+<tr>
+<td>35</td>
+<td>0 (zero)</td>
+<td>Navigates to the beginning of line</td>
+</tr>
+<tr>
+<td>36</td>
+<td>^ or 0w</td>
+<td>Navigates to the beginning of the first word in the line</td>
+</tr>
+<tr>
+<td>37</td>
+<td>W</td>
+<td>Navigates to next word (ignores punctuation)</td>
+</tr>
+<tr>
+<td>38</td>
+<td>B</td>
+<td>Navigates to previous word (ignores punctuation)</td>
+</tr>
+<tr>
+<td>39</td>
+<td>t</td>
+<td>Navigates to the specified character and put the cursor one before the specified character (example: t!)</td>
+</tr>
+<tr>
+<td>40</td>
+<td>f</td>
+<td>to the specified character and put the cursor on the specified character (example: f!)</td>
+</tr>
+<tr>
+<td>41</td>
+<td>%</td>
+<td>Navigates to the next same character</td>
+</tr>
+<tr>
+<td>42</td>
+<td>cw</td>
+<td>Changes next word</td>
+</tr>
+<tr>
+<td>43</td>
+<td>dw</td>
+<td>Deletes next word</td>
+</tr>
+<tr>
+<td>44</td>
+<td>D</td>
+<td>Deletes rest of the line (after coursor)</td>
+</tr>
+<tr>
+<td>45</td>
+<td>C</td>
+<td>Deletes rest of the line (after coursor) and enters insert mode</td>
+</tr>
+<tr>
+<td>46</td>
+<td>ct</td>
+<td>Then press the letter that you want to change up to, will delete till that letter and enter insert mode</td>
+</tr>
+<tr>
+<td>47</td>
+<td>dt</td>
+<td>Then press the letter that you want to change up to, will delete till that letter</td>
+</tr>
+<tr>
+<td>48</td>
+<td>*</td>
+<td>Searches for current word</td>
+</tr>
+<tr>
+<td>49</td>
+<td>;</td>
+<td>Goes to next instance</td>
+</tr>
+<tr>
+<td>50</td>
+<td>a</td>
+<td>Takes you to the next character and put you into insert mode</td>
+</tr>
+<tr>
+<td>51</td>
+<td>A</td>
+<td>Navigates to the end of the line and enters insert mode</td>
+</tr>
+<tr>
+<td>52</td>
+<td>I</td>
+<td>Takes you to at the beginning of the line and puts you into insert mode</td>
+</tr>
+<tr>
+<td>53</td>
+<td>~</td>
+<td>Swaps the letter (upper to lower case or vice versa)</td>
+</tr>
+<tr>
+<td>54</td>
+<td>/</td>
+<td>Searches particular word or character, press &quot;Enter&quot; to find. (Then you can use n to navigate next occurrence or N to the previous)</td>
+</tr>
+<tr>
+<td>55</td>
+<td>:num</td>
+<td>Navigates to specified line. Example: :55 will take you 55th line</td>
+</tr>
+</tbody>
+</table>
+]]></content></item></channel></rss>
