@@ -2,6 +2,10 @@
 title: "How to Deploy NodeJs App"
 date: 2022-04-23T20:33:34+04:00
 draft: false
+cover: "blog-images/deploy-nodejs.webp"
+useRelativeCover: true
+readingTime: true
+tags: ["Node.js", "Deployment"]
 ---
 
 

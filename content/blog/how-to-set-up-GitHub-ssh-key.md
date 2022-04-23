@@ -2,6 +2,9 @@
 title: "How to Set Up GitHub Ssh Key"
 date: 2022-04-23T20:49:33+04:00
 draft: false
+cover: "blog-images/github_ssh_key.png"
+useRelativeCover: true
+tags: ["GitHub", "Security"]
 ---
 
 **Github SSH Key set up**

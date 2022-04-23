@@ -1,11 +1,29 @@
 baseURL = '/'
 languageCode = 'en-us'
 title = "Yalchin's Blog"
-buildDrafts = true
 paginate = 5
 theme = "hugo-theme-hello-friend-ng"
-#theme = "hugo-theme-terminal"
-#themeColor = "pink"
+
+
+[params]
+  defaultTheme = "dark"
+  showReadingTime = true
+
+[languages]
+    [languages.en]
+    title = "Yalchin's Blog"
+    subtitle = "Notes about the things I learn"
+    keywords = "Yalchin Mammadli Software Developer Python Golang Node.js"
+    copyright = "Yalchin Mammadli"
+    menuMore = "Show more"
+    readMore = "Read more"
+    newerPosts = "New"
+    olderPosts = "Previous"
+
+    [languages.en.params.logo]
+      logoText = "Hello, Friend"
+      logoHomeLink = "/"
+
 
 [[menu.main]]
     identifier = "blog"

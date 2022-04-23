@@ -2,7 +2,11 @@
 title: "How to Set Up Mailgun in Django"
 date: 2022-04-23T20:41:10+04:00
 draft: false
+tags: ["Django", "Mailgun"]
+cover: "blog-images/mailgun.jpg"
+useRelativeCover: true
 ---
+
 
 In this tutorial, I will try to cover configuring a custom domain for sending emails in your application. The benefit of using mailgun is that it allows you to send (5,000) emails for free during the first three months (then you will pay $0.8 per 1,000 emails) and its setup procedure is so straightforward. You will only need to add your payment verification to be able to send emails without any restrictions.
 
@@ -12,7 +16,9 @@ In this tutorial, I will try to cover configuring a custom domain for sending em
 
 If you don't have an account yet, go to [mailgun](https://mailgun.com) and sign up with your email, then add your payment verification.
 
-In the **Domains** section of the website, click on add new domain to include your custom domain. For this tutorial only, let's say our domain is yalchin.info. You can include only the domain name, but mailgun recommends including a subdomain, so I will continue with mg.yalchin.info.![](https:yalchin.info/media/images/mailgun-add-domain.png)
+In the **Domains** section of the website, click on add new domain to include your custom domain. For this tutorial only, let's say our domain is yalchin.info. You can include only the domain name, but mailgun recommends including a subdomain, so I will continue with mg.yalchin.info.![](
+
+https:yalchin.info/media/images/mailgun-add-domain.png)
 
 After choosing the domain name click on **Add Domain** button.
 

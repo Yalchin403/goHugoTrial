@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Yalchin Mammadli"
 date: 2022-04-23T14:24:13+04:00
 draft: false
 ---

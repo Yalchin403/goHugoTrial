@@ -2,6 +2,9 @@
 title: "Vim Cheatsheet"
 date: 2022-04-23T20:21:07+04:00
 draft: false
+cover: "blog-images/vim.png"
+useRelativeCover: true
+tags: ["Vim", "Cheatsheet"]
 ---
 
 
