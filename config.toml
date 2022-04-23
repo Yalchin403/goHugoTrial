@@ -1,11 +1,13 @@
 baseURL = 'https://yalchin403.github.io/'
 languageCode = 'en-us'
 title = "Yalchin's Blog"
+buildDrafts = true
+paginate = 5
 theme = "hugo-theme-hello-friend-ng"
 #theme = "hugo-theme-terminal"
-themeColor = "pink"
+#themeColor = "pink"
 
- [[menu.main]]
+[[menu.main]]
     identifier = "blog"
     name       = "Blog"
     url        = "/posts"
