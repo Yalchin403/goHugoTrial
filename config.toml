@@ -1,4 +1,4 @@
-baseURL = 'https://yalchin403.github.io/'
+baseURL = 'https://yalchin403.github.io/goHugoTrial/'
 languageCode = 'en-us'
 title = "Yalchin's Blog"
 theme = "hugo-theme-hello-friend-ng"
