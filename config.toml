@@ -1,8 +1,8 @@
-baseURL = 'http://yalchin.me/goHugoTrial/'
+baseURL = 'http://yalchin.me/'
 languageCode = 'en-us'
 title = "Yalchin's Blog"
-#theme = "hello-friend-ng"
-theme = "hugo-theme-terminal"
+theme = "hugo-theme-hello-friend-ng"
+#theme = "hugo-theme-terminal"
 themeColor = "pink"
 
  [[menu.main]]
