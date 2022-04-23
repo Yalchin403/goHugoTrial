@@ -8,8 +8,7 @@ tags:
   - untagged
 ---
 
-<pre>
+
 ```py
 print("Hello World!")
 ```
-</pre>
