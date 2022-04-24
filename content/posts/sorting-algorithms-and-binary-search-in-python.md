@@ -13,8 +13,8 @@ tags:
 
 
 
-**Selection Sort**
-------------------
+### **Selection Sort**
+
 
 Selection sort is about selecting the minimum value in an unsorted array and moving it towards the front by comparing. Here is an example code snippet to implement binary search in Python:
 
@@ -35,8 +35,9 @@ Selection sort is about selecting the minimum value in an unsorted array and mov
     unsorted_list = [7,8,9,8,7,6,5,6,7,8,9,8,7,6,5,6,7,8,0]
     selection_sort(unsorted_list)
 ```
-
+---
 ### **Buble Sort**
+
 
 The bubble sort algorithm is applied by going through an array of data a number of times and at the same time comparing two adjacent numbers at a time in order to reorder them if there are out of order. Here is an example snippet written in Python:
 
@@ -52,7 +53,7 @@ The bubble sort algorithm is applied by going through an array of data a number 
     
     buble_sort(unsorted_list)
 ```
-
+---
 ### **Insertion Sort**
 
 Insertion Sort algorithm is applied by going through an unsorted list, comparing the current value with the previous one, and in case the previous number is greater we swap them. Here is the code implementation of the insertion sort algorithm in Python:
@@ -70,6 +71,7 @@ Insertion Sort algorithm is applied by going through an unsorted list, comparing
     
     print(insertion_sort(unsorted_list))
 ```
+---
 
 ### **Quicksort**
 
@@ -99,6 +101,8 @@ Quick Sort algorithm is applied by choosing a pivot element from an unsorted lis
 ```
 
 Quicksort algorithm is considered to be the fastest sorting algorithm as the time complexity of Quicksort is O(n log n) in the best case, O(n log n) in the average case, and O(n^2) in the worst case. But because it has the best performance in the average case for most inputs, Quicksort is generally considered the “fastest” sorting algorithm
+
+---
 
 ### **Binary Search**
 
@@ -135,4 +139,5 @@ The binary search algorithm is applied by finding the middle point of the list a
 
 Binary search is more efficient than the linear search; it has a time complexity of O(log n). The list of data must be in sorted order for it to work. ... Its time complexity of O(log n) makes it very fast as compared to other sorting algorithms.
 
+---
 Thanks for reading!

@@ -7,6 +7,22 @@ theme = "hugo-theme-hello-friend-ng"
 disqusShortname = 'blog-yalchin-ml'
 
 
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ''
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    noHl = false
+    style = 'paraiso-dark'
+    tabWidth = 4
+
+
 [languages]
     [languages.en]
     languageName = "English"
