@@ -3,6 +3,8 @@ title: "Map, Sort, and Filter Functions in Python"
 date: 2022-04-23T23:03:25+04:00
 draft: false
 toc: false
+cover: "blog-images/built_in_funcs.jpg"
+useRelativeCover: true
 images:
 tags:
   - Python

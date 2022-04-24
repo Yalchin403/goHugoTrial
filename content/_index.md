@@ -16,6 +16,4 @@ Hi 👋, I'm Yalchin Mammadli
 
 👯 I’m looking to collaborate with **Pythonistas, Gophers, and Node.js Developers**
 
-📝 I regularly write articles on [https://yalchin.info/blog](https://yalchin.info/blog)
-
 💬 Ask me about **Python, Node.js, Linux, and DevOps** 
