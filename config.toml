@@ -4,6 +4,7 @@ title = "Yalchin's Blog"
 buildDrafts = false
 paginate = 5
 theme = "hugo-theme-hello-friend-ng"
+disqusShortname = 'blog-yalchin-ml'
 
 
 [languages]
