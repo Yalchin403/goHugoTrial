@@ -1,268 +1,273 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Yalchin's Blog</title><link>/posts/</link><description>Recent content in Posts on Yalchin's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Yalchin Mammadli</copyright><lastBuildDate>Sun, 24 Apr 2022 14:36:58 +0400</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker Compose for Elastic Search and Kibana</title><link>/posts/docker-compose-for-elastic-search-and-kibana/</link><pubDate>Sun, 24 Apr 2022 14:36:58 +0400</pubDate><guid>/posts/docker-compose-for-elastic-search-and-kibana/</guid><description>Command: docker-compose -f docker-compose.yml up -d Content of docker-compose.yml: version: &amp;#39;3.7&amp;#39; services: elasticsearch: image: docker.elastic.co/elasticsearch/elasticsearch:7.4.0 container_name: elasticsearch restart: always environment: - xpack.security.enabled=false - discovery.type=single-node ulimits: memlock: soft: -1 hard: -1 nofile: soft: 65536 hard: 65536 cap_add: - IPC_LOCK volumes: - elasticsearch-data-volume:/usr/share/elasticsearch/data ports: - 9200:9200 kibana: container_name: kibana image: docker.</description><content type="html"><![CDATA[<h3 id="command">Command:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    docker-compose -f docker-compose.yml up -d
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    docker-compose -f docker-compose.yml up -d
 </span></span></code></pre></div><h3 id="content-of-docker-composeyml">Content of docker-compose.yml:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>    <span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3.7&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">services</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">elasticsearch</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.elastic.co/elasticsearch/elasticsearch:7.4.0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">elasticsearch</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">environment</span>:
-</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">xpack.security.enabled=false</span>
-</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">discovery.type=single-node</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ulimits</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">memlock</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">soft</span>: -<span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">hard</span>: -<span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">nofile</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">soft</span>: <span style="color:#ae81ff">65536</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">hard</span>: <span style="color:#ae81ff">65536</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">cap_add</span>:
-</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">IPC_LOCK</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">elasticsearch-data-volume:/usr/share/elasticsearch/data</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">9200</span>:<span style="color:#ae81ff">9200</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>    <span style="color:#5bc4bf">version</span>: <span style="color:#48b685">&#39;3.7&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#5bc4bf">services</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#5bc4bf">elasticsearch</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#5bc4bf">image</span>: <span style="color:#f99b15">docker.elastic.co/elasticsearch/elasticsearch:7.4.0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#5bc4bf">container_name</span>: <span style="color:#f99b15">elasticsearch</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#5bc4bf">restart</span>: <span style="color:#f99b15">always</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#5bc4bf">environment</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f99b15">xpack.security.enabled=false</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f99b15">discovery.type=single-node</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#5bc4bf">ulimits</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#5bc4bf">memlock</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#5bc4bf">soft</span>: -<span style="color:#f99b15">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#5bc4bf">hard</span>: -<span style="color:#f99b15">1</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#5bc4bf">nofile</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#5bc4bf">soft</span>: <span style="color:#f99b15">65536</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#5bc4bf">hard</span>: <span style="color:#f99b15">65536</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#5bc4bf">cap_add</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f99b15">IPC_LOCK</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#5bc4bf">volumes</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f99b15">elasticsearch-data-volume:/usr/share/elasticsearch/data</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#5bc4bf">ports</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f99b15">9200</span>:<span style="color:#f99b15">9200</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">kibana</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">kibana</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.elastic.co/kibana/kibana:7.4.0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">environment</span>:
-</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">ELASTICSEARCH_HOSTS=http://elasticsearch:9200</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">5601</span>:<span style="color:#ae81ff">5601</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">depends_on</span>:
-</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">elasticsearch</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#5bc4bf">kibana</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#5bc4bf">container_name</span>: <span style="color:#f99b15">kibana</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#5bc4bf">image</span>: <span style="color:#f99b15">docker.elastic.co/kibana/kibana:7.4.0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#5bc4bf">restart</span>: <span style="color:#f99b15">always</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#5bc4bf">environment</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f99b15">ELASTICSEARCH_HOSTS=http://elasticsearch:9200</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#5bc4bf">ports</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f99b15">5601</span>:<span style="color:#f99b15">5601</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#5bc4bf">depends_on</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f99b15">elasticsearch</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">elasticsearch-data-volume</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">driver</span>: <span style="color:#ae81ff">local</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#5bc4bf">volumes</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#5bc4bf">elasticsearch-data-volume</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#5bc4bf">driver</span>: <span style="color:#f99b15">local</span>
 </span></span></code></pre></div>]]></content></item><item><title>How to Securely Connect to Virtual Private Server</title><link>/posts/how-to-securely-connect-to-virtual-private-server/</link><pubDate>Sun, 24 Apr 2022 14:26:43 +0400</pubDate><guid>/posts/how-to-securely-connect-to-virtual-private-server/</guid><description>For your information, this tutorial is not written by me absolutely, I&amp;rsquo;ve used ssh connection part of this tutorial and added some comments to make individual tutorial on &amp;ldquo;how to create your own vpn&amp;rdquo; and also covers the things that we can implement to make our vps the way more secure.
 Generating SSH keys
 Using a cleartext password to log in to your server is never a good idea since the password is not encrypted in transit and can be exposed on a hostile network.</description><content type="html"><![CDATA[<p>For your information, this tutorial is not written by me absolutely, I&rsquo;ve used ssh connection part of <a href="https://notthebe.ee/Creating-your-own-OpenVPN-server.html">this</a> tutorial and added some comments to make individual tutorial on &ldquo;how to create your own vpn&rdquo; and also covers the things that we can implement to make our vps the way more secure.</p>
 <p><strong>Generating SSH keys</strong></p>
 <p>Using a cleartext password to log in to your server is never a good idea since the password is not encrypted in transit and can be exposed on a hostile network. By creating an SSH key we&rsquo;re going to make it so that you can only log in to the server if you have the key file and the password, and at the same time the password is encrypted. If you&rsquo;re using Linux you probably already know how to open the terminal, if you&rsquo;re on Mac you can find the Terminal app in your Applications folder, and on Windows 10 you&rsquo;ll need to open the PowerShell with administrator&rsquo;s privileges and install SSH using this command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    PS C:<span style="color:#ae81ff">\&gt;</span> Add-WindowsCapability -Online -Name OpenSSH.Client
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    PS C:<span style="color:#f99b15">\&gt;</span> Add-WindowsCapability -Online -Name OpenSSH.Client
 </span></span></code></pre></div><p>This is the command that will generate our ssh keys. The RSA algorithm with 4096 key size is what I&rsquo;d personally recommend, since it&rsquo;s sufficiently secure and widely supported.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    ssh-keygen -t rsa -b <span style="color:#f99b15">4096</span>
 </span></span></code></pre></div><p>Press Enter when asked for the key location to save it to the default one and then enter your password of choice.</p>
 <p><strong>Logging in to the server</strong></p>
 <p>By now our server has started up and we&rsquo;re ready to log in. Copy the IP address from the server control panel, go back to the terminal and type in</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    ssh root@ip-address
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    ssh root@ip-address
 </span></span></code></pre></div><p>Type <strong>yes</strong>, enter the root password that you specified in the first step and that&rsquo;s it, we&rsquo;re in.</p>
 <p><strong>Updating the OS</strong></p>
 <p>First and foremost, let&rsquo;s update our operating system and software:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    apt-get update <span style="color:#f92672">&amp;&amp;</span> apt-get upgrade
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    apt-get update <span style="color:#5bc4bf">&amp;&amp;</span> apt-get upgrade
 </span></span></code></pre></div><p>I&rsquo;ll also install my favourite text editor, feel free to use whatever you want though, for example nano.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    apt install vim
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    apt install vim
 </span></span></code></pre></div><p><strong>Creating a user</strong></p>
 <p>As much as it&rsquo;s convenient to not have to enter a password every time, we need to create a user account that isn&rsquo;t root. Exposing root login on an SSH server is probably not a good idea even if you have multi factor authentication. Call me paranoid, but I think having to enter root password sometimes is the price I&rsquo;m willing to pay for some sense of security. Type</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    useradd -G sudo -m wolfgang -s /bin/bash
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    useradd -G sudo -m wolfgang -s /bin/bash
 </span></span></code></pre></div><p>That&rsquo;s going to create a user, set bash as default shell for him and permit sudo usage. Afterwards we&rsquo;ll need to create a password for our user, using</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    passwd yourPassword
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    passwd yourPassword
 </span></span></code></pre></div><p>Enter your password twice and we&rsquo;re good to go.</p>
 <p><strong>Copying SSH key from host to the server</strong></p>
 <p>Now that we&rsquo;ve created our user it&rsquo;s a good time to copy the public SSH key to the server. Open a second terminal window for your local terminal and enter:</p>
 <p><strong>Linux or Mac</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh-copy-id wolfgang@ip_address
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh-copy-id wolfgang@ip_address
 </span></span></code></pre></div><p><strong>Windows</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    type $env:USERPROFILE<span style="color:#ae81ff">\.</span>ssh<span style="color:#ae81ff">\i</span>d_rsa.pub | ssh ip-address <span style="color:#e6db74">&#34;cat &gt;&gt; .ssh/authorized_keys&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    type <span style="color:#ef6155">$env</span>:USERPROFILE<span style="color:#f99b15">\.</span>ssh<span style="color:#f99b15">\i</span>d_rsa.pub | ssh ip-address <span style="color:#48b685">&#34;cat &gt;&gt; .ssh/authorized_keys&#34;</span>
 </span></span></code></pre></div><p>You&rsquo;ll be prompted to enter your password and once you do, go back to the terminal window with your server. Don&rsquo;t close the other window yet.</p>
 <p><strong>Restricting SSH to key authentication</strong></p>
 <p>Now that we&rsquo;ve copied the SSH keys to the server we have to restrict authentication to the public key only. Let&rsquo;s edit the sshd configuration file</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    nvim /etc/ssh/sshd_config
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    nvim /etc/ssh/sshd_config
 </span></span></code></pre></div><p>First of all, let&rsquo;s change the default port. This won&rsquo;t do much for security, but it will help with those obnoxious SSH scanners that try to log in with default credentials. Not much, but the security logs will definitely get easier to read. You can use any port that&rsquo;s not taken by other services, but I prefer to use 69. Nice</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    <span style="color:#75715e"># Port 22 default</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    <span style="color:#776e71"># Port 22 default</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    Port <span style="color:#ae81ff">69</span> <span style="color:#75715e"># make sure that the firewall is open for this port</span>
+</span></span><span style="display:flex;"><span>    Port <span style="color:#f99b15">69</span> <span style="color:#776e71"># make sure that the firewall is open for this port</span>
 </span></span></code></pre></div><p>Next, we need to disable password authentication so that you&rsquo;re only able to log in using a public key.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    PasswordAuthentication no
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    PasswordAuthentication no
 </span></span></code></pre></div><p>Last but not least, let&rsquo;s also disable root login</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    PermitRootLogin no
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    PermitRootLogin no
 </span></span></code></pre></div><p><em>If you do so, make sure that the user that you are going to use to log in also has the public key in /home/your_user_name/.ssh/authorized_keys file</em></p>
 <p>Now save the file and restart the sshd service using</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    systemctl restart sshd
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    systemctl restart sshd
 </span></span></code></pre></div><p>Now without closing this window let&rsquo;s go back to our local machine and try to log in with our key:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh -i ~/.ssh/id_rsa wolfgang@ip_address -p <span style="color:#ae81ff">69</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh -i ~/.ssh/id_rsa wolfgang@ip_address -p <span style="color:#f99b15">69</span>
 </span></span></code></pre></div><p>If you see the prompt to enter your key password, that means we&rsquo;re good to go. It&rsquo;s also a good idea to verify that we can&rsquo;t log in with our password anymore:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh wolfgang@ip_address -p <span style="color:#ae81ff">69</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh wolfgang@ip_address -p <span style="color:#f99b15">69</span>
 </span></span></code></pre></div><p>This should give us “Permission denied”.</p>
 <p><strong>Creating a server alias</strong></p>
 <p>But you might have noticed that this command is kind of long and annoying to type, so let&rsquo;s fix that. Create a file in the “.ssh” folder in your home directory called “config” and edit it using your favourite text editor:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    nvim ~/.ssh/config
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    nvim ~/.ssh/config
 </span></span></code></pre></div><p>Here we&rsquo;re going to create an alias for our VPS</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    Host wolfgangsvpn   <span style="color:#75715e"># choose a name for your server</span>
-</span></span><span style="display:flex;"><span>    User    wolgang    <span style="color:#75715e"># the username of the user that we created</span>
-</span></span><span style="display:flex;"><span>    Port <span style="color:#ae81ff">69</span>
-</span></span><span style="display:flex;"><span>    IdentityFile ~/.ssh/id_rsa   <span style="color:#75715e"># that&#39;s the location of our key file</span>
-</span></span><span style="display:flex;"><span>    HostName ip_address  <span style="color:#75715e"># that&#39;s the IP address of our server</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    Host wolfgangsvpn   <span style="color:#776e71"># choose a name for your server</span>
+</span></span><span style="display:flex;"><span>    User    wolgang    <span style="color:#776e71"># the username of the user that we created</span>
+</span></span><span style="display:flex;"><span>    Port <span style="color:#f99b15">69</span>
+</span></span><span style="display:flex;"><span>    IdentityFile ~/.ssh/id_rsa   <span style="color:#776e71"># that&#39;s the location of our key file</span>
+</span></span><span style="display:flex;"><span>    HostName ip_address  <span style="color:#776e71"># that&#39;s the IP address of our server</span>
 </span></span></code></pre></div><p>Save and close, and now we can login to our server by simply typing:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh wolfgangsvpn.
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh wolfgangsvpn.
 </span></span></code></pre></div><p>If you don&rsquo;t want to see this wall of text every time you login, type in:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    touch .hushlogin
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    touch .hushlogin
 </span></span></code></pre></div><p>If you do not want to deal with config file, you can use <a href="https://termius.com/linux">termius app</a> instead</p>
 <p>Thanks for reading!</p>
 ]]></content></item><item><title>Sorting Algorithms and Binary Search in Python</title><link>/posts/sorting-algorithms-and-binary-search-in-python/</link><pubDate>Sun, 24 Apr 2022 14:20:57 +0400</pubDate><guid>/posts/sorting-algorithms-and-binary-search-in-python/</guid><description>Selection Sort Selection sort is about selecting the minimum value in an unsorted array and moving it towards the front by comparing. Here is an example code snippet to implement binary search in Python:
-def selection_sort(list_): length = len(list_) for index in range(length - 1): min = list_[index] for j in range(index+ 1, length): if list_[j] &amp;lt; min: min = list_[j] list_[j], list_[index] = list_[index], list_[j] return list_ unsorted_list = [7,8,9,8,7,6,5,6,7,8,9,8,7,6,5,6,7,8,0] selection_sort(unsorted_list) Buble Sort The bubble sort algorithm is applied by going through an array of data a number of times and at the same time comparing two adjacent numbers at a time in order to reorder them if there are out of order.</description><content type="html"><![CDATA[<h2 id="selection-sort"><strong>Selection Sort</strong></h2>
+def selection_sort(list_): length = len(list_) for index in range(length - 1): min = list_[index] for j in range(index+ 1, length): if list_[j] &amp;lt; min: min = list_[j] list_[j], list_[index] = list_[index], list_[j] return list_ unsorted_list = [7,8,9,8,7,6,5,6,7,8,9,8,7,6,5,6,7,8,0] selection_sort(unsorted_list) Buble Sort The bubble sort algorithm is applied by going through an array of data a number of times and at the same time comparing two adjacent numbers at a time in order to reorder them if there are out of order.</description><content type="html"><![CDATA[<h3 id="selection-sort"><strong>Selection Sort</strong></h3>
 <p>Selection sort is about selecting the minimum value in an unsorted array and moving it towards the front by comparing. Here is an example code snippet to implement binary search in Python:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">selection_sort</span>(list_):
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#815ba4">def</span> <span style="color:#06b6ef">selection_sort</span>(list_):
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        length <span style="color:#f92672">=</span> len(list_)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> index <span style="color:#f92672">in</span> range(length <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>):
-</span></span><span style="display:flex;"><span>            min <span style="color:#f92672">=</span> list_[index]
+</span></span><span style="display:flex;"><span>        length <span style="color:#5bc4bf">=</span> len(list_)
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">for</span> index <span style="color:#5bc4bf">in</span> range(length <span style="color:#5bc4bf">-</span> <span style="color:#f99b15">1</span>):
+</span></span><span style="display:flex;"><span>            min <span style="color:#5bc4bf">=</span> list_[index]
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(index<span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, length):
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> list_[j] <span style="color:#f92672">&lt;</span> min:
-</span></span><span style="display:flex;"><span>                    min <span style="color:#f92672">=</span> list_[j]
-</span></span><span style="display:flex;"><span>                    list_[j], list_[index] <span style="color:#f92672">=</span> list_[index], list_[j]
+</span></span><span style="display:flex;"><span>            <span style="color:#815ba4">for</span> j <span style="color:#5bc4bf">in</span> range(index<span style="color:#5bc4bf">+</span> <span style="color:#f99b15">1</span>, length):
+</span></span><span style="display:flex;"><span>                <span style="color:#815ba4">if</span> list_[j] <span style="color:#5bc4bf">&lt;</span> min:
+</span></span><span style="display:flex;"><span>                    min <span style="color:#5bc4bf">=</span> list_[j]
+</span></span><span style="display:flex;"><span>                    list_[j], list_[index] <span style="color:#5bc4bf">=</span> list_[index], list_[j]
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> list_
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">return</span> list_
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    unsorted_list <span style="color:#f92672">=</span> [<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>    unsorted_list <span style="color:#5bc4bf">=</span> [<span style="color:#f99b15">7</span>,<span style="color:#f99b15">8</span>,<span style="color:#f99b15">9</span>,<span style="color:#f99b15">8</span>,<span style="color:#f99b15">7</span>,<span style="color:#f99b15">6</span>,<span style="color:#f99b15">5</span>,<span style="color:#f99b15">6</span>,<span style="color:#f99b15">7</span>,<span style="color:#f99b15">8</span>,<span style="color:#f99b15">9</span>,<span style="color:#f99b15">8</span>,<span style="color:#f99b15">7</span>,<span style="color:#f99b15">6</span>,<span style="color:#f99b15">5</span>,<span style="color:#f99b15">6</span>,<span style="color:#f99b15">7</span>,<span style="color:#f99b15">8</span>,<span style="color:#f99b15">0</span>]
 </span></span><span style="display:flex;"><span>    selection_sort(unsorted_list)
-</span></span></code></pre></div><h3 id="buble-sort"><strong>Buble Sort</strong></h3>
+</span></span></code></pre></div><hr>
+<h3 id="buble-sort"><strong>Buble Sort</strong></h3>
 <p>The bubble sort algorithm is applied by going through an array of data a number of times and at the same time comparing two adjacent numbers at a time in order to reorder them if there are out of order. Here is an example snippet written in Python:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">buble_sort</span>(list_):
-</span></span><span style="display:flex;"><span>        boundary <span style="color:#f92672">=</span> len(list_) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#815ba4">def</span> <span style="color:#06b6ef">buble_sort</span>(list_):
+</span></span><span style="display:flex;"><span>        boundary <span style="color:#5bc4bf">=</span> len(list_) <span style="color:#5bc4bf">-</span> <span style="color:#f99b15">1</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(boundary):
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> list_[i] <span style="color:#f92672">&gt;</span> list_[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]:
-</span></span><span style="display:flex;"><span>                list_[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>], list_[i] <span style="color:#f92672">=</span> list_[i] ,list_[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">for</span> i <span style="color:#5bc4bf">in</span> range(boundary):
+</span></span><span style="display:flex;"><span>            <span style="color:#815ba4">if</span> list_[i] <span style="color:#5bc4bf">&gt;</span> list_[i<span style="color:#5bc4bf">+</span><span style="color:#f99b15">1</span>]:
+</span></span><span style="display:flex;"><span>                list_[i<span style="color:#5bc4bf">+</span><span style="color:#f99b15">1</span>], list_[i] <span style="color:#5bc4bf">=</span> list_[i] ,list_[i<span style="color:#5bc4bf">+</span><span style="color:#f99b15">1</span>]
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> list_
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">return</span> list_
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    buble_sort(unsorted_list)
-</span></span></code></pre></div><h3 id="insertion-sort"><strong>Insertion Sort</strong></h3>
+</span></span></code></pre></div><hr>
+<h3 id="insertion-sort"><strong>Insertion Sort</strong></h3>
 <p>Insertion Sort algorithm is applied by going through an unsorted list, comparing the current value with the previous one, and in case the previous number is greater we swap them. Here is the code implementation of the insertion sort algorithm in Python:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">insertion_sort</span>(list_a):
-</span></span><span style="display:flex;"><span>        indexing_length <span style="color:#f92672">=</span> range(<span style="color:#ae81ff">1</span>, len(list_a))
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> indexing_length:
-</span></span><span style="display:flex;"><span>            value_to_sort <span style="color:#f92672">=</span> list_a[i]
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#815ba4">def</span> <span style="color:#06b6ef">insertion_sort</span>(list_a):
+</span></span><span style="display:flex;"><span>        indexing_length <span style="color:#5bc4bf">=</span> range(<span style="color:#f99b15">1</span>, len(list_a))
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">for</span> i <span style="color:#5bc4bf">in</span> indexing_length:
+</span></span><span style="display:flex;"><span>            value_to_sort <span style="color:#5bc4bf">=</span> list_a[i]
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> list_a[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">&gt;</span> value_to_sort <span style="color:#f92672">and</span> i<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span>:
-</span></span><span style="display:flex;"><span>                list_a[i], list_a[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> list_a[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>], list_a[i]
+</span></span><span style="display:flex;"><span>            <span style="color:#815ba4">while</span> list_a[i<span style="color:#5bc4bf">-</span><span style="color:#f99b15">1</span>] <span style="color:#5bc4bf">&gt;</span> value_to_sort <span style="color:#5bc4bf">and</span> i<span style="color:#5bc4bf">&gt;</span><span style="color:#f99b15">0</span>:
+</span></span><span style="display:flex;"><span>                list_a[i], list_a[i<span style="color:#5bc4bf">-</span><span style="color:#f99b15">1</span>] <span style="color:#5bc4bf">=</span> list_a[i<span style="color:#5bc4bf">-</span><span style="color:#f99b15">1</span>], list_a[i]
 </span></span><span style="display:flex;"><span>                
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> list_a
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">return</span> list_a
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    print(insertion_sort(unsorted_list))
-</span></span></code></pre></div><h3 id="quicksort"><strong>Quicksort</strong></h3>
+</span></span></code></pre></div><hr>
+<h3 id="quicksort"><strong>Quicksort</strong></h3>
 <p>Quick Sort algorithm is applied by choosing a pivot element from an unsorted list and dividing the others into two sub-lists, which we can call less and greater than elements of arrays in comparison to chosen pivot element. Here is the code implementation of quick sort algorithm written in Python:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">quick_sort</span>(list_):
-</span></span><span style="display:flex;"><span>        len_ <span style="color:#f92672">=</span> len(list_)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> len_ <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> list_
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>            pivot <span style="color:#f92672">=</span> list_<span style="color:#f92672">.</span>pop()
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#815ba4">def</span> <span style="color:#06b6ef">quick_sort</span>(list_):
+</span></span><span style="display:flex;"><span>        len_ <span style="color:#5bc4bf">=</span> len(list_)
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">if</span> len_ <span style="color:#5bc4bf">&lt;=</span> <span style="color:#f99b15">1</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#815ba4">return</span> list_
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">else</span>:
+</span></span><span style="display:flex;"><span>            pivot <span style="color:#5bc4bf">=</span> list_<span style="color:#5bc4bf">.</span>pop()
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>        l_greater <span style="color:#f92672">=</span> []
-</span></span><span style="display:flex;"><span>        l_lower <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>        l_greater <span style="color:#5bc4bf">=</span> []
+</span></span><span style="display:flex;"><span>        l_lower <span style="color:#5bc4bf">=</span> []
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> element <span style="color:#f92672">in</span> list_:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> element <span style="color:#f92672">&gt;</span> pivot:
-</span></span><span style="display:flex;"><span>                l_greater<span style="color:#f92672">.</span>append(element)
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">for</span> element <span style="color:#5bc4bf">in</span> list_:
+</span></span><span style="display:flex;"><span>            <span style="color:#815ba4">if</span> element <span style="color:#5bc4bf">&gt;</span> pivot:
+</span></span><span style="display:flex;"><span>                l_greater<span style="color:#5bc4bf">.</span>append(element)
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>                l_lower<span style="color:#f92672">.</span>append(element)
+</span></span><span style="display:flex;"><span>            <span style="color:#815ba4">else</span>:
+</span></span><span style="display:flex;"><span>                l_lower<span style="color:#5bc4bf">.</span>append(element)
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> quick_sort(l_lower) <span style="color:#f92672">+</span> [pivot] <span style="color:#f92672">+</span> quick_sort(l_greater)
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">return</span> quick_sort(l_lower) <span style="color:#5bc4bf">+</span> [pivot] <span style="color:#5bc4bf">+</span> quick_sort(l_greater)
 </span></span><span style="display:flex;"><span>     
 </span></span><span style="display:flex;"><span>    print(quick_sort(unsorted_list))
 </span></span></code></pre></div><p>Quicksort algorithm is considered to be the fastest sorting algorithm as the time complexity of Quicksort is O(n log n) in the best case, O(n log n) in the average case, and O(n^2) in the worst case. But because it has the best performance in the average case for most inputs, Quicksort is generally considered the “fastest” sorting algorithm</p>
+<hr>
 <h3 id="binary-search"><strong>Binary Search</strong></h3>
 <p>The binary search algorithm is applied by finding the middle point of the list and checking if the target number is greater or less than the selected middle point. As only one of these cases will be True, we will find a new middle point and divide the list till the middle point is our target. Here is the code implementation of the binary search algorithm:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">binary_search</span>(sorted_list, target):
-</span></span><span style="display:flex;"><span>        len_ <span style="color:#f92672">=</span> len(sorted_list)
-</span></span><span style="display:flex;"><span>        start <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>        end <span style="color:#f92672">=</span> len_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#815ba4">def</span> <span style="color:#06b6ef">binary_search</span>(sorted_list, target):
+</span></span><span style="display:flex;"><span>        len_ <span style="color:#5bc4bf">=</span> len(sorted_list)
+</span></span><span style="display:flex;"><span>        start <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">0</span>
+</span></span><span style="display:flex;"><span>        end <span style="color:#5bc4bf">=</span> len_ <span style="color:#5bc4bf">-</span> <span style="color:#f99b15">1</span>
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> start <span style="color:#f92672">&lt;=</span> end:
-</span></span><span style="display:flex;"><span>            mid_index <span style="color:#f92672">=</span> (start <span style="color:#f92672">+</span> end) <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">while</span> start <span style="color:#5bc4bf">&lt;=</span> end:
+</span></span><span style="display:flex;"><span>            mid_index <span style="color:#5bc4bf">=</span> (start <span style="color:#5bc4bf">+</span> end) <span style="color:#5bc4bf">//</span> <span style="color:#f99b15">2</span>
 </span></span><span style="display:flex;"><span>            print(mid_index)
-</span></span><span style="display:flex;"><span>            mid_ <span style="color:#f92672">=</span> sorted_list[mid_index]
-</span></span><span style="display:flex;"><span>            print(mid_, sorted_list<span style="color:#f92672">.</span>index(mid_))
+</span></span><span style="display:flex;"><span>            mid_ <span style="color:#5bc4bf">=</span> sorted_list[mid_index]
+</span></span><span style="display:flex;"><span>            print(mid_, sorted_list<span style="color:#5bc4bf">.</span>index(mid_))
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> mid_ <span style="color:#f92672">==</span> target:
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>, <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;at </span><span style="color:#e6db74">{</span>sorted_list[mid_index]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#815ba4">if</span> mid_ <span style="color:#5bc4bf">==</span> target:
+</span></span><span style="display:flex;"><span>                <span style="color:#815ba4">return</span> <span style="color:#815ba4">True</span>, <span style="color:#48b685">f</span><span style="color:#48b685">&#34;at </span><span style="color:#f99b15">{</span>sorted_list[mid_index]<span style="color:#f99b15">}</span><span style="color:#48b685">&#34;</span>
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">elif</span> target <span style="color:#f92672">&lt;</span> mid_:
-</span></span><span style="display:flex;"><span>                end <span style="color:#f92672">=</span> mid_index <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#815ba4">elif</span> target <span style="color:#5bc4bf">&lt;</span> mid_:
+</span></span><span style="display:flex;"><span>                end <span style="color:#5bc4bf">=</span> mid_index <span style="color:#5bc4bf">-</span> <span style="color:#f99b15">1</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>                start <span style="color:#f92672">=</span> mid_index <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#815ba4">else</span>:
+</span></span><span style="display:flex;"><span>                start <span style="color:#5bc4bf">=</span> mid_index <span style="color:#5bc4bf">+</span> <span style="color:#f99b15">1</span>
 </span></span><span style="display:flex;"><span>                
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#815ba4">return</span> <span style="color:#815ba4">None</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    sorted_list <span style="color:#f92672">=</span> insertion_sort(unsorted_list)
-</span></span><span style="display:flex;"><span>    target <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;Please enter the target: &#34;</span>))
+</span></span><span style="display:flex;"><span>    sorted_list <span style="color:#5bc4bf">=</span> insertion_sort(unsorted_list)
+</span></span><span style="display:flex;"><span>    target <span style="color:#5bc4bf">=</span> int(input(<span style="color:#48b685">&#34;Please enter the target: &#34;</span>))
 </span></span><span style="display:flex;"><span>    print(binary_search(sorted_list, target))
 </span></span></code></pre></div><p>Binary search is more efficient than the linear search; it has a time complexity of O(log n). The list of data must be in sorted order for it to work. &hellip; Its time complexity of O(log n) makes it very fast as compared to other sorting algorithms.</p>
+<hr>
 <p>Thanks for reading!</p>
 ]]></content></item><item><title>Map, Sort, and Filter Functions in Python</title><link>/posts/map-sort-and-filter-functions-in-python/</link><pubDate>Sat, 23 Apr 2022 23:03:25 +0400</pubDate><guid>/posts/map-sort-and-filter-functions-in-python/</guid><description>This tutorial will help you to see real example of using map, sort, and filter functions along with lambda functions in Python.
 Map Function Example
 Python&amp;rsquo;s map() is a built-in function that allows you to process and transform all the items in an iterable without using an explicit for loop, a technique commonly known as mapping. map() is useful when you need to apply a transformation function to each item in an iterable and transform them into a new iterable.</description><content type="html"><![CDATA[<p>This tutorial will help you to see real example of using map, sort, and filter functions along with lambda functions in Python.</p>
 <p><strong>Map Function Example</strong></p>
 <p>Python&rsquo;s map() is a built-in function that allows you to process and transform all the items in an iterable without using an explicit for loop, a technique commonly known as mapping. map() is useful when you need to apply a transformation function to each item in an iterable and transform them into a new iterable.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    target_list <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>] 
-</span></span><span style="display:flex;"><span>    func <span style="color:#f92672">=</span> <span style="color:#66d9ef">lambda</span> element: element <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    target_list <span style="color:#5bc4bf">=</span> [<span style="color:#f99b15">1</span>, <span style="color:#f99b15">2</span>, <span style="color:#f99b15">3</span>, <span style="color:#f99b15">4</span>, <span style="color:#f99b15">5</span>, <span style="color:#f99b15">6</span>] 
+</span></span><span style="display:flex;"><span>    func <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">lambda</span> element: element <span style="color:#5bc4bf">**</span> <span style="color:#f99b15">2</span>
 </span></span><span style="display:flex;"><span>    print(list(map(func, target_list)))
 </span></span></code></pre></div><p><strong>Sort Function Example</strong></p>
 <p>The sort() method sorts the elements of an array in place and returns the sorted array. The default sort order is ascending, built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    users <span style="color:#f92672">=</span> [(<span style="color:#e6db74">&#34;Yalchin&#34;</span>, <span style="color:#e6db74">&#34;age&#34;</span>, <span style="color:#ae81ff">20</span>), (<span style="color:#e6db74">&#34;Coder&#34;</span>, <span style="color:#e6db74">&#34;age&#34;</span>, <span style="color:#ae81ff">19</span>)]
-</span></span><span style="display:flex;"><span>    func <span style="color:#f92672">=</span> <span style="color:#66d9ef">lambda</span> user: user[<span style="color:#ae81ff">2</span>]
-</span></span><span style="display:flex;"><span>    users<span style="color:#f92672">.</span>sort(key<span style="color:#f92672">=</span>func,reverse<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    users <span style="color:#5bc4bf">=</span> [(<span style="color:#48b685">&#34;Yalchin&#34;</span>, <span style="color:#48b685">&#34;age&#34;</span>, <span style="color:#f99b15">20</span>), (<span style="color:#48b685">&#34;Coder&#34;</span>, <span style="color:#48b685">&#34;age&#34;</span>, <span style="color:#f99b15">19</span>)]
+</span></span><span style="display:flex;"><span>    func <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">lambda</span> user: user[<span style="color:#f99b15">2</span>]
+</span></span><span style="display:flex;"><span>    users<span style="color:#5bc4bf">.</span>sort(key<span style="color:#5bc4bf">=</span>func,reverse<span style="color:#5bc4bf">=</span><span style="color:#815ba4">True</span>)
 </span></span><span style="display:flex;"><span>    print(users)
 </span></span></code></pre></div><p><strong>Filter Function Example</strong></p>
 <p>The filter() method constructs an iterator from elements of an iterable for which a function returns true. In simple words, filter() method filters the given iterable with the help of a function that tests each element in the iterable to be true or not.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    ages <span style="color:#f92672">=</span> [<span style="color:#ae81ff">18</span>, <span style="color:#ae81ff">33</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">23</span>]
-</span></span><span style="display:flex;"><span>    func <span style="color:#f92672">=</span> <span style="color:#66d9ef">lambda</span> age: age <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">18</span>
-</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> filter(func, ages)
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    ages <span style="color:#5bc4bf">=</span> [<span style="color:#f99b15">18</span>, <span style="color:#f99b15">33</span>, <span style="color:#f99b15">3</span>, <span style="color:#f99b15">10</span>, <span style="color:#f99b15">9</span>, <span style="color:#f99b15">23</span>]
+</span></span><span style="display:flex;"><span>    func <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">lambda</span> age: age <span style="color:#5bc4bf">&gt;</span> <span style="color:#f99b15">18</span>
+</span></span><span style="display:flex;"><span>    x <span style="color:#5bc4bf">=</span> filter(func, ages)
 </span></span><span style="display:flex;"><span>    print(list(x))
 </span></span></code></pre></div>]]></content></item><item><title>How to Set Up Supervisor Service</title><link>/posts/how-to-set-up-supervisor-service/</link><pubDate>Sat, 23 Apr 2022 22:53:12 +0400</pubDate><guid>/posts/how-to-set-up-supervisor-service/</guid><description>This tutorial will help you to run any application in the background with the help of &amp;ldquo;Supervisor&amp;rdquo;. For this tutorial specifically, I&amp;rsquo;m going to show how we can set up discord.py bot with &amp;ldquo;Supervisor&amp;rdquo;, however, this is not the limitation. You can set up any application you want with &amp;ldquo;Supervisor&amp;rdquo;. I will state essential commands, and also will show you an example configuration file, that you can use to set up your application.</description><content type="html"><![CDATA[<p>This tutorial will help you to run any application in the background with the help of &ldquo;Supervisor&rdquo;. For this tutorial specifically, I&rsquo;m going to show how we can set up discord.py bot with &ldquo;Supervisor&rdquo;, however, this is not the limitation. You can set up any application you want with &ldquo;Supervisor&rdquo;. I will state essential commands, and also will show you an example configuration file, that you can use to set up your application.<br>
 For this tutorial I assume that you are using <strong>Ubuntu Linux as your OS or any other debian based Linux distro</strong>, and you have already installed supervisor in your machine.</p>
 <p><strong>Creating Configutation File</strong></p>
 <p>You configuration file should be located in</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    /etc/supervisor/conf.d
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    /etc/supervisor/conf.d
 </span></span></code></pre></div><p>So, navigate to the target location and create your configuration file. For my example we can name it as disbot.conf To navigate to /etc/supervisor/conf.d use following command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    cd /etc/supervisor/conf.d
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    cd /etc/supervisor/conf.d
 </span></span></code></pre></div><p>You can create your configuration file in the terminal by writing following command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    touch disbot.conf
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    touch disbot.conf
 </span></span></code></pre></div><p>Make sure name of your configuration file correspons to your project</p>
 <p><strong>Writing Configuration FIle</strong></p>
 <p>Now we are ready to edit our conf file, open up the conf file that you just created with you favorite editor, in my case I&rsquo;m using vim as file editor, but nano would also be one of the best choices. To open the file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    vim disbot.conf
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    vim disbot.conf
 </span></span></code></pre></div><p>Switch to insert mode by pressing i, and you need to provide information as given in the example configuration file below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    command<span style="color:#f92672">=</span>/usr/bin/python3 /home/root/bots/disbot.py
-</span></span><span style="display:flex;"><span>    directory <span style="color:#f92672">=</span> /home/root/bots
-</span></span><span style="display:flex;"><span>    autostart<span style="color:#f92672">=</span>true
-</span></span><span style="display:flex;"><span>    autorestart<span style="color:#f92672">=</span>true
-</span></span><span style="display:flex;"><span>    stderr_logfile<span style="color:#f92672">=</span>/var/log/disbot/err.log
-</span></span><span style="display:flex;"><span>    stdout_logfile<span style="color:#f92672">=</span>/var/log/disbot/out.log
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    <span style="color:#ef6155">command</span><span style="color:#5bc4bf">=</span>/usr/bin/python3 /home/root/bots/disbot.py
+</span></span><span style="display:flex;"><span>    <span style="color:#ef6155">directory</span> <span style="color:#5bc4bf">=</span> /home/root/bots
+</span></span><span style="display:flex;"><span>    <span style="color:#ef6155">autostart</span><span style="color:#5bc4bf">=</span>true
+</span></span><span style="display:flex;"><span>    <span style="color:#ef6155">autorestart</span><span style="color:#5bc4bf">=</span>true
+</span></span><span style="display:flex;"><span>    <span style="color:#ef6155">stderr_logfile</span><span style="color:#5bc4bf">=</span>/var/log/disbot/err.log
+</span></span><span style="display:flex;"><span>    <span style="color:#ef6155">stdout_logfile</span><span style="color:#5bc4bf">=</span>/var/log/disbot/out.log
 </span></span></code></pre></div><p>Let&rsquo;s break these lines of commands one by one:<br>
 So the first command, as it seems from its name, should be a command to run your application, in our case we run our disbot.py as:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    python3 disbot.py
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    python3 disbot.py
 </span></span></code></pre></div><p>So, we need to specify where python3 is and where our file is to run the application.</p>
 <p>Second command is about showing your top level directory which encompasses your application.</p>
 <p>Third, and fourth commands is to auto start/restart the service.</p>
 <p>Last two lines specify the log files to store any out or err logs.</p>
 <p>After you are done with these configuration make sure that you save the file and exit by using :wq (this command will not work if you use other editor) and then go to /var/log/ directory by using following command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    cd /var/log
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    cd /var/log
 </span></span></code></pre></div><p>And create a folder to store your log files as specified in the conf file. You do not need to create log files, just creating folder specified in the conf file is enough.<br>
 In our case, we specified folder name as disbot so we can go ahead and create one by:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    mkdir disbot
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    mkdir disbot
 </span></span></code></pre></div><p><strong>Activating The Service</strong></p>
 <p>Now you just need to execute following commands, to make sure that supervisor recognize the conf file and will be able to run it without any problem:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    sudo supervisorctl reread
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    sudo supervisorctl reread
 </span></span><span style="display:flex;"><span>    sudo supervisorctl update
 </span></span></code></pre></div><p>To make sure that service is up and running you can check its status by using the following command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    sudo supervisorctl status
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    sudo supervisorctl status
 </span></span></code></pre></div><p>You will see name of your service that you specified in conf file and it will look something like this:</p>
 <p><a href="https://yalchin.info/media/images/supervisor_status.jpg"><img src="https://yalchin.info/media/images/supervisor_status.jpg" alt=""></a></p>
 <p>If you set up everything properly, service status should be &ldquo;running&rdquo;. However, if you see its not running make sure that, you configured your conf file properly, and check your log files to see what the error is.</p>
 <p>Following two commands may also be useful for you when you need to restart, start, or stop the service:</p>
 <p>Make sure you use name of your own service instead of disbot</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    sudo supervisorctl restart disbot
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    sudo supervisorctl restart disbot
 </span></span><span style="display:flex;"><span>    sudo supervisorctl start disbot
 </span></span><span style="display:flex;"><span>    sudo supervisorctl stop disbot
 </span></span></code></pre></div><p>Thanks for reading!</p>
@@ -271,11 +276,11 @@ This tutorial will help you to be able to set up SSH key connection to your gith
 For now let&amp;rsquo;s just assume that you&amp;rsquo;ve successfully set up SSH key, after that you need to make sure that you don&amp;rsquo;t access your repo with HTTPS, but with ssh, so if you previously cloned your repo wirh https set it to ssh as below:</description><content type="html"><![CDATA[<p><strong>Github SSH Key set up</strong></p>
 <p>This tutorial will help you to be able to set up SSH key connection to your github account on a <strong>Linux</strong> machine. You can also continue to read this tutorial if you want to set up <strong><em>Deploy Keys</em></strong>.</p>
 <p>For now let&rsquo;s just assume that <strong>you&rsquo;ve successfully set up SSH key</strong>, after that you need to make sure that you don&rsquo;t access your repo with HTTPS, but with ssh, so if you previously cloned your repo wirh https set it to ssh as below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    git remote set-url origin git@github.com:yourUsername/nameOfRepo.git
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    git remote set-url origin git@github.com:yourUsername/nameOfRepo.git
 </span></span></code></pre></div><p>Now let&rsquo;s come back to SSH generation part&hellip;</p>
 <p>Navigate to <code>~/.ssh</code> directory
 Execute:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span> -C <span style="color:#e6db74">&#34;yourGithubEmail&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh-keygen -t rsa -b <span style="color:#f99b15">4096</span> -C <span style="color:#48b685">&#34;yourGithubEmail&#34;</span>
 </span></span></code></pre></div><p>If you press enter:</p>
 <p>By default id_rsa named public and private keys will be generated.</p>
 <p>You can also specify it</p>
@@ -293,15 +298,15 @@ Execute:</p>
 </ul>
 <p>Now come back to terminal, in the .ssh directory, create config file</p>
 <p>You can create by either:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    touch config
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    touch config
 </span></span></code></pre></div><p>Or</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    vi config
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    vi config
 </span></span></code></pre></div><p>Paste this into config file</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    Host github.com
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    Host github.com
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    User git
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    Port <span style="color:#ae81ff">22</span>
+</span></span><span style="display:flex;"><span>    Port <span style="color:#f99b15">22</span>
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    Hostname github.com
 </span></span><span style="display:flex;"><span>    
@@ -309,17 +314,17 @@ Execute:</p>
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    TCPKeepAlive yes
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    IdentiesOnly yes <span style="color:#75715e"># if it throws error about this line delete or comment out  </span>
+</span></span><span style="display:flex;"><span>    IdentiesOnly yes <span style="color:#776e71"># if it throws error about this line delete or comment out  </span>
 </span></span></code></pre></div><p><em>Here make sure that you changed IdentityFile&rsquo;s path with the path that points to your own private key</em></p>
 <p><strong>Save the file and exit</strong></p>
 <p>Execute
 following commands:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    eval <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>ssh-agent -s<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    eval <span style="color:#48b685">&#34;</span><span style="color:#815ba4">$(</span>ssh-agent -s<span style="color:#815ba4">)</span><span style="color:#48b685">&#34;</span>
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    ssh-add ~/.ssh/nameOfYourPrivateKey
 </span></span></code></pre></div><p>You should be good to go now :)</p>
 <p>Test your ssh connection by:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh -T github.com
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh -T github.com
 </span></span></code></pre></div><p>It should say you have successfully set up SSH key authentication if you have done so :)</p>
 <p>Thanks for reading!</p>
 ]]></content></item><item><title>How to Set Up Mailgun in Django</title><link>/posts/how-to-set-up-mailgun-in-django/</link><pubDate>Sat, 23 Apr 2022 20:41:10 +0400</pubDate><guid>/posts/how-to-set-up-mailgun-in-django/</guid><description>In this tutorial, I will try to cover configuring a custom domain for sending emails in your application. The benefit of using mailgun is that it allows you to send (5,000) emails for free during the first three months (then you will pay $0.8 per 1,000 emails) and its setup procedure is so straightforward. You will only need to add your payment verification to be able to send emails without any restrictions.</description><content type="html"><![CDATA[<p>In this tutorial, I will try to cover configuring a custom domain for sending emails in your application. The benefit of using mailgun is that it allows you to send (5,000) emails for free during the first three months (then you will pay $0.8 per 1,000 emails) and its setup procedure is so straightforward. You will only need to add your payment verification to be able to send emails without any restrictions.</p>
@@ -338,116 +343,116 @@ following commands:</p>
 <p><img src="https://yalchin.info/media/images/mailgun-cname-record.png" alt=""></p>
 <p>After you are done, go back to mailgun DNS verification page, and click on verify button. If you added DNS records correctly, it will probably be verified within minutes, but theoretically, it can take 24-48 hours to be verified. After verifying, you are good to copy your credentials from mailgun and paste into <strong>settings.py</strong> in your django project. Just like shown beneath:</p>
 <h3 id="setup-settingspy"><strong>Setup settings.py</strong></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    EMAIL_HOST <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;smtp.mailgun.org&#39;</span>
-</span></span><span style="display:flex;"><span>    EMAIL_PORT <span style="color:#f92672">=</span> <span style="color:#ae81ff">587</span>
-</span></span><span style="display:flex;"><span>    EMAIL_HOST_USER <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;mg@mail.yalchin.info&#39;</span>
-</span></span><span style="display:flex;"><span>    EMAIL_HOST_PASSWORD <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;yourSupersecrectPassword&#39;</span>
-</span></span><span style="display:flex;"><span>    EMAIL_USE_TLS <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    EMAIL_HOST <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#39;smtp.mailgun.org&#39;</span>
+</span></span><span style="display:flex;"><span>    EMAIL_PORT <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">587</span>
+</span></span><span style="display:flex;"><span>    EMAIL_HOST_USER <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#39;mg@mail.yalchin.info&#39;</span>
+</span></span><span style="display:flex;"><span>    EMAIL_HOST_PASSWORD <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#39;yourSupersecrectPassword&#39;</span>
+</span></span><span style="display:flex;"><span>    EMAIL_USE_TLS <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">True</span>
 </span></span></code></pre></div><p><strong>Warning:</strong></p>
 <p><strong>Do not include your password</strong> in the settings.py, but include them via the .env file and ignore the .env file with .gitignore; otherwise, your password can be leaked.</p>
 <h3 id="send-email"><strong>Send Email</strong></h3>
 <p>In order to send emails in Django, you can use libraries and code snippet below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#f92672">from</span> django.core.mail <span style="color:#f92672">import</span> send_mail
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">from</span> portfolio.settings <span style="color:#f92672">import</span> EMAIL_HOST_USER   <span style="color:#75715e"># import your email</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">from</span> django.core.mail <span style="color:#f92672">import</span> EmailMessage
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#5bc4bf">from</span> <span style="color:#fec418">django.core.mail</span> <span style="color:#5bc4bf">import</span> send_mail
+</span></span><span style="display:flex;"><span>    <span style="color:#5bc4bf">from</span> <span style="color:#fec418">portfolio.settings</span> <span style="color:#5bc4bf">import</span> EMAIL_HOST_USER   <span style="color:#776e71"># import your email</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#5bc4bf">from</span> <span style="color:#fec418">django.core.mail</span> <span style="color:#5bc4bf">import</span> EmailMessage
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    email_body <span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Yea we did it!&#34;</span>
-</span></span><span style="display:flex;"><span>    email <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;emailYouWantedToSendMessageTo@example.com&#34;</span>
-</span></span><span style="display:flex;"><span>    msg <span style="color:#f92672">=</span> EmailMessage(
-</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;First Email Ever&#34;</span>,
+</span></span><span style="display:flex;"><span>    email_body <span style="color:#5bc4bf">=</span><span style="color:#48b685">&#34;Yea we did it!&#34;</span>
+</span></span><span style="display:flex;"><span>    email <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;emailYouWantedToSendMessageTo@example.com&#34;</span>
+</span></span><span style="display:flex;"><span>    msg <span style="color:#5bc4bf">=</span> EmailMessage(
+</span></span><span style="display:flex;"><span>                    <span style="color:#48b685">&#34;First Email Ever&#34;</span>,
 </span></span><span style="display:flex;"><span>                    email_body,
 </span></span><span style="display:flex;"><span>                    EMAIL_HOST_USER,
 </span></span><span style="display:flex;"><span>                    [email]
 </span></span><span style="display:flex;"><span>    )
-</span></span><span style="display:flex;"><span>                msg<span style="color:#f92672">.</span>content_subtype <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;html&#34;</span>   <span style="color:#75715e"># so that you can format you message with html tags</span>
-</span></span><span style="display:flex;"><span>                msg<span style="color:#f92672">.</span>send()
+</span></span><span style="display:flex;"><span>                msg<span style="color:#5bc4bf">.</span>content_subtype <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;html&#34;</span>   <span style="color:#776e71"># so that you can format you message with html tags</span>
+</span></span><span style="display:flex;"><span>                msg<span style="color:#5bc4bf">.</span>send()
 </span></span></code></pre></div><p><strong>Thanks for reading!</strong></p>
 ]]></content></item><item><title>How to Deploy NodeJs App</title><link>/posts/how-to-deploy-nodejs-app/</link><pubDate>Sat, 23 Apr 2022 20:33:34 +0400</pubDate><guid>/posts/how-to-deploy-nodejs-app/</guid><description>In this tutorial, we will be deploying a simple URL shortener API built-in express framework of NodeJs. It is pretty simple, uses MongoDB as its database, and you can find its source code: https://yalchin.ml/Cq93RQ.
 As a VPS, I use a Linode ubuntu server, and I assume that you have at least some basic knowledge when it comes to Linux.
 Install Node and NPM curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - sudo apt install nodejs # verify that bash is installed node --version Clone your Repo git clone [link to your github repo] Install npm dependency packages cd yourproject npm install npm start (or whatever your start command) # stop app ctrl+C To be able to run our app in the background continuously, we will be using a package called PM2.</description><content type="html"><![CDATA[<p>In this tutorial, we will be deploying a simple URL shortener API built-in express framework of NodeJs. It is pretty simple, uses MongoDB as its database, and you can find its source code: <a href="https://yalchin.ml/Cq93RQ">https://yalchin.ml/Cq93RQ</a>.</p>
 <p>As a VPS, I use a Linode ubuntu server, and I assume that you have at least some basic knowledge when it comes to Linux.</p>
 <h3 id="install-node-and-npm">Install Node and NPM</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    sudo apt install nodejs
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># verify that bash is installed</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#776e71"># verify that bash is installed</span>
 </span></span><span style="display:flex;"><span>    node --version
 </span></span></code></pre></div><h3 id="clone-your-repo">Clone your Repo</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    git clone <span style="color:#f92672">[</span>link to your github repo<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    git clone <span style="color:#5bc4bf">[</span>link to your github repo<span style="color:#5bc4bf">]</span>
 </span></span></code></pre></div><h3 id="install-npm-dependency-packages">Install npm dependency packages</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    cd yourproject
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    cd yourproject
 </span></span><span style="display:flex;"><span>    npm install
-</span></span><span style="display:flex;"><span>    npm start <span style="color:#f92672">(</span>or whatever your start command<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># stop app</span>
+</span></span><span style="display:flex;"><span>    npm start <span style="color:#5bc4bf">(</span>or whatever your start command<span style="color:#5bc4bf">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#776e71"># stop app</span>
 </span></span><span style="display:flex;"><span>    ctrl+C
 </span></span></code></pre></div><p>To be able to run our app in the background continuously, we will be using a package called <strong>PM2</strong>. It is a daemon process manager that will help you manage and keep your application online.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    sudo npm i pm2 -g
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    sudo npm i pm2 -g
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#(name of your appfile can be different)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#776e71">#(name of your appfile can be different)</span>
 </span></span><span style="display:flex;"><span>    pm2 start app
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Other pm2 commands</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#776e71"># Other pm2 commands</span>
 </span></span><span style="display:flex;"><span>    pm2 show app
 </span></span><span style="display:flex;"><span>    pm2 status
 </span></span><span style="display:flex;"><span>    pm2 restart app
 </span></span><span style="display:flex;"><span>    pm2 stop app
-</span></span><span style="display:flex;"><span>    pm2 logs <span style="color:#f92672">(</span>Show log stream<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>    pm2 flush <span style="color:#f92672">(</span>Clear logs<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    pm2 logs <span style="color:#5bc4bf">(</span>Show log stream<span style="color:#5bc4bf">)</span>
+</span></span><span style="display:flex;"><span>    pm2 flush <span style="color:#5bc4bf">(</span>Clear logs<span style="color:#5bc4bf">)</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># To make sure app starts when reboot</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#776e71"># To make sure app starts when reboot</span>
 </span></span><span style="display:flex;"><span>    pm2 startup ubuntu
 </span></span></code></pre></div><p>You should now be able to access your app using your IP and port. Now we want to set up a firewall blocking that port and set up NGINX as a reverse proxy so we can access it directly using port 80 (HTTP)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">### Set up a ufw firewall</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#776e71">### Set up a ufw firewall</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    sudo ufw enable
 </span></span><span style="display:flex;"><span>    sudo ufw status
-</span></span><span style="display:flex;"><span>    sudo ufw allow ssh <span style="color:#f92672">(</span>Port 22<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>    sudo ufw allow http <span style="color:#f92672">(</span>Port 80<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>    sudo ufw allow https <span style="color:#f92672">(</span>Port 443<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    sudo ufw allow ssh <span style="color:#5bc4bf">(</span>Port 22<span style="color:#5bc4bf">)</span>
+</span></span><span style="display:flex;"><span>    sudo ufw allow http <span style="color:#5bc4bf">(</span>Port 80<span style="color:#5bc4bf">)</span>
+</span></span><span style="display:flex;"><span>    sudo ufw allow https <span style="color:#5bc4bf">(</span>Port 443<span style="color:#5bc4bf">)</span>
 </span></span></code></pre></div><h3 id="configure-and-install-nginx">Configure and install NGINX</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    sudo apt install nginx
 </span></span></code></pre></div><p>Navigate into</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    cd /etc/nginx/sites-enabled
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    cd /etc/nginx/sites-enabled
 </span></span></code></pre></div><p>and create a config file for Nginx, name it as your domain. In my case my domain is api.kydev.ml, so I will be naming it as api.kydev.ml.conf . To create a file you can use the touch command or directly open a file with vim, if the file doesn&rsquo;t exist, vim will create a one and open it for you. So use the method below to create:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    touch api.kydev.ml.conf
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    touch api.kydev.ml.conf
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># OR</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#776e71"># OR</span>
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    vim api.kydev.ml.conf
 </span></span></code></pre></div><p>If you are not familiar with vim, for now, use touch command but for the future, you can take a look at <a href="https://yalchin.info/blog/written-tutorial-on-vim/">this cheat sheet</a> to learn it.</p>
 <p>Open the file you have created with your favorite editor, in my case:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    sudo vim /etc/nginx/sites-available/api.kydev.ml.conf
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    sudo vim /etc/nginx/sites-available/api.kydev.ml.conf
 </span></span></code></pre></div><p>Add the following snippet, but don&rsquo;t forget to modify it for your needs:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    server <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    server <span style="color:#5bc4bf">{</span>
 </span></span><span style="display:flex;"><span>    server_name yourdomain.com www.yourdomain.com;
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>        location / <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>            proxy_pass http://localhost:5000; <span style="color:#75715e">#whatever port your app runs on</span>
+</span></span><span style="display:flex;"><span>        location / <span style="color:#5bc4bf">{</span>
+</span></span><span style="display:flex;"><span>            proxy_pass http://localhost:5000; <span style="color:#776e71">#whatever port your app runs on</span>
 </span></span><span style="display:flex;"><span>            proxy_http_version 1.1;
-</span></span><span style="display:flex;"><span>            proxy_set_header Upgrade $http_upgrade;
-</span></span><span style="display:flex;"><span>            proxy_set_header Connection <span style="color:#e6db74">&#39;upgrade&#39;</span>;
-</span></span><span style="display:flex;"><span>            proxy_set_header Host $host;
-</span></span><span style="display:flex;"><span>            proxy_cache_bypass $http_upgrade;
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            proxy_set_header Upgrade <span style="color:#ef6155">$http_upgrade</span>;
+</span></span><span style="display:flex;"><span>            proxy_set_header Connection <span style="color:#48b685">&#39;upgrade&#39;</span>;
+</span></span><span style="display:flex;"><span>            proxy_set_header Host <span style="color:#ef6155">$host</span>;
+</span></span><span style="display:flex;"><span>            proxy_cache_bypass <span style="color:#ef6155">$http_upgrade</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#5bc4bf">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#5bc4bf">}</span>
 </span></span></code></pre></div><h3 id="check-nginx-config">Check NGINX config:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    <span style="color:#75715e"># Check NGINX config</span>
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    <span style="color:#776e71"># Check NGINX config</span>
 </span></span><span style="display:flex;"><span>    sudo nginx -t
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Restart NGINX</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#776e71"># Restart NGINX</span>
 </span></span><span style="display:flex;"><span>    sudo service nginx restart
 </span></span></code></pre></div><p>You should now be able to visit your IP with no port (port 80) and see your app. Now let&rsquo;s add a domain. <strong>Congrats!</strong></p>
 <h3 id="add-the-domain">Add the domain</h3>
 <p>Add an A record for @ and for www to your droplet, It may take a bit to propagate</p>
 <h3 id="add-ssl-with-letsencrypt">Add SSL with LetsEncrypt</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    sudo add-apt-repository ppa:certbot/certbot
+<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    sudo add-apt-repository ppa:certbot/certbot
 </span></span><span style="display:flex;"><span>    sudo apt-get update
 </span></span><span style="display:flex;"><span>    sudo apt-get install python-certbot-nginx
 </span></span><span style="display:flex;"><span>    sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Only valid for 90 days, test the renewal process with</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#776e71"># Only valid for 90 days, test the renewal process with</span>
 </span></span><span style="display:flex;"><span>    certbot renew --dry-run
 </span></span></code></pre></div><p>You should now be able to visit your domain and see your Node app up and running securely!</p>
 <p><strong>Thanks for reading!</strong></p>
