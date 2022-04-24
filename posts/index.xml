@@ -1,4 +1,205 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Yalchin's Blog</title><link>/posts/</link><description>Recent content in Posts on Yalchin's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Yalchin Mammadli</copyright><lastBuildDate>Sat, 23 Apr 2022 23:03:25 +0400</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Map, Sort, and Filter Functions in Python</title><link>/posts/map-sort-and-filter-functions-in-python/</link><pubDate>Sat, 23 Apr 2022 23:03:25 +0400</pubDate><guid>/posts/map-sort-and-filter-functions-in-python/</guid><description>This tutorial will help you to see real example of using map, sort, and filter functions along with lambda functions in Python.
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Yalchin's Blog</title><link>/posts/</link><description>Recent content in Posts on Yalchin's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Yalchin Mammadli</copyright><lastBuildDate>Sun, 24 Apr 2022 14:36:58 +0400</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker Compose for Elastic Search and Kibana</title><link>/posts/docker-compose-for-elastic-search-and-kibana/</link><pubDate>Sun, 24 Apr 2022 14:36:58 +0400</pubDate><guid>/posts/docker-compose-for-elastic-search-and-kibana/</guid><description>Command: docker-compose -f docker-compose.yml up -d Content of docker-compose.yml: version: &amp;#39;3.7&amp;#39; services: elasticsearch: image: docker.elastic.co/elasticsearch/elasticsearch:7.4.0 container_name: elasticsearch restart: always environment: - xpack.security.enabled=false - discovery.type=single-node ulimits: memlock: soft: -1 hard: -1 nofile: soft: 65536 hard: 65536 cap_add: - IPC_LOCK volumes: - elasticsearch-data-volume:/usr/share/elasticsearch/data ports: - 9200:9200 kibana: container_name: kibana image: docker.</description><content type="html"><![CDATA[<h3 id="command">Command:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    docker-compose -f docker-compose.yml up -d
+</span></span></code></pre></div><h3 id="content-of-docker-composeyml">Content of docker-compose.yml:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>    <span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3.7&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">elasticsearch</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.elastic.co/elasticsearch/elasticsearch:7.4.0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">elasticsearch</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">xpack.security.enabled=false</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">discovery.type=single-node</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ulimits</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">memlock</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">soft</span>: -<span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">hard</span>: -<span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">nofile</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">soft</span>: <span style="color:#ae81ff">65536</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">hard</span>: <span style="color:#ae81ff">65536</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">cap_add</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">IPC_LOCK</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">elasticsearch-data-volume:/usr/share/elasticsearch/data</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">9200</span>:<span style="color:#ae81ff">9200</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">kibana</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">kibana</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.elastic.co/kibana/kibana:7.4.0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">ELASTICSEARCH_HOSTS=http://elasticsearch:9200</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">5601</span>:<span style="color:#ae81ff">5601</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">depends_on</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">elasticsearch</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">elasticsearch-data-volume</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">driver</span>: <span style="color:#ae81ff">local</span>
+</span></span></code></pre></div>]]></content></item><item><title>How to Securely Connect to Virtual Private Server</title><link>/posts/how-to-securely-connect-to-virtual-private-server/</link><pubDate>Sun, 24 Apr 2022 14:26:43 +0400</pubDate><guid>/posts/how-to-securely-connect-to-virtual-private-server/</guid><description>For your information, this tutorial is not written by me absolutely, I&amp;rsquo;ve used ssh connection part of this tutorial and added some comments to make individual tutorial on &amp;ldquo;how to create your own vpn&amp;rdquo; and also covers the things that we can implement to make our vps the way more secure.
+Generating SSH keys
+Using a cleartext password to log in to your server is never a good idea since the password is not encrypted in transit and can be exposed on a hostile network.</description><content type="html"><![CDATA[<p>For your information, this tutorial is not written by me absolutely, I&rsquo;ve used ssh connection part of <a href="https://notthebe.ee/Creating-your-own-OpenVPN-server.html">this</a> tutorial and added some comments to make individual tutorial on &ldquo;how to create your own vpn&rdquo; and also covers the things that we can implement to make our vps the way more secure.</p>
+<p><strong>Generating SSH keys</strong></p>
+<p>Using a cleartext password to log in to your server is never a good idea since the password is not encrypted in transit and can be exposed on a hostile network. By creating an SSH key we&rsquo;re going to make it so that you can only log in to the server if you have the key file and the password, and at the same time the password is encrypted. If you&rsquo;re using Linux you probably already know how to open the terminal, if you&rsquo;re on Mac you can find the Terminal app in your Applications folder, and on Windows 10 you&rsquo;ll need to open the PowerShell with administrator&rsquo;s privileges and install SSH using this command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    PS C:<span style="color:#ae81ff">\&gt;</span> Add-WindowsCapability -Online -Name OpenSSH.Client
+</span></span></code></pre></div><p>This is the command that will generate our ssh keys. The RSA algorithm with 4096 key size is what I&rsquo;d personally recommend, since it&rsquo;s sufficiently secure and widely supported.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span>
+</span></span></code></pre></div><p>Press Enter when asked for the key location to save it to the default one and then enter your password of choice.</p>
+<p><strong>Logging in to the server</strong></p>
+<p>By now our server has started up and we&rsquo;re ready to log in. Copy the IP address from the server control panel, go back to the terminal and type in</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    ssh root@ip-address
+</span></span></code></pre></div><p>Type <strong>yes</strong>, enter the root password that you specified in the first step and that&rsquo;s it, we&rsquo;re in.</p>
+<p><strong>Updating the OS</strong></p>
+<p>First and foremost, let&rsquo;s update our operating system and software:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    apt-get update <span style="color:#f92672">&amp;&amp;</span> apt-get upgrade
+</span></span></code></pre></div><p>I&rsquo;ll also install my favourite text editor, feel free to use whatever you want though, for example nano.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    apt install vim
+</span></span></code></pre></div><p><strong>Creating a user</strong></p>
+<p>As much as it&rsquo;s convenient to not have to enter a password every time, we need to create a user account that isn&rsquo;t root. Exposing root login on an SSH server is probably not a good idea even if you have multi factor authentication. Call me paranoid, but I think having to enter root password sometimes is the price I&rsquo;m willing to pay for some sense of security. Type</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    useradd -G sudo -m wolfgang -s /bin/bash
+</span></span></code></pre></div><p>That&rsquo;s going to create a user, set bash as default shell for him and permit sudo usage. Afterwards we&rsquo;ll need to create a password for our user, using</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    passwd yourPassword
+</span></span></code></pre></div><p>Enter your password twice and we&rsquo;re good to go.</p>
+<p><strong>Copying SSH key from host to the server</strong></p>
+<p>Now that we&rsquo;ve created our user it&rsquo;s a good time to copy the public SSH key to the server. Open a second terminal window for your local terminal and enter:</p>
+<p><strong>Linux or Mac</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh-copy-id wolfgang@ip_address
+</span></span></code></pre></div><p><strong>Windows</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    type $env:USERPROFILE<span style="color:#ae81ff">\.</span>ssh<span style="color:#ae81ff">\i</span>d_rsa.pub | ssh ip-address <span style="color:#e6db74">&#34;cat &gt;&gt; .ssh/authorized_keys&#34;</span>
+</span></span></code></pre></div><p>You&rsquo;ll be prompted to enter your password and once you do, go back to the terminal window with your server. Don&rsquo;t close the other window yet.</p>
+<p><strong>Restricting SSH to key authentication</strong></p>
+<p>Now that we&rsquo;ve copied the SSH keys to the server we have to restrict authentication to the public key only. Let&rsquo;s edit the sshd configuration file</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    nvim /etc/ssh/sshd_config
+</span></span></code></pre></div><p>First of all, let&rsquo;s change the default port. This won&rsquo;t do much for security, but it will help with those obnoxious SSH scanners that try to log in with default credentials. Not much, but the security logs will definitely get easier to read. You can use any port that&rsquo;s not taken by other services, but I prefer to use 69. Nice</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    <span style="color:#75715e"># Port 22 default</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    Port <span style="color:#ae81ff">69</span> <span style="color:#75715e"># make sure that the firewall is open for this port</span>
+</span></span></code></pre></div><p>Next, we need to disable password authentication so that you&rsquo;re only able to log in using a public key.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    PasswordAuthentication no
+</span></span></code></pre></div><p>Last but not least, let&rsquo;s also disable root login</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    PermitRootLogin no
+</span></span></code></pre></div><p><em>If you do so, make sure that the user that you are going to use to log in also has the public key in /home/your_user_name/.ssh/authorized_keys file</em></p>
+<p>Now save the file and restart the sshd service using</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    systemctl restart sshd
+</span></span></code></pre></div><p>Now without closing this window let&rsquo;s go back to our local machine and try to log in with our key:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh -i ~/.ssh/id_rsa wolfgang@ip_address -p <span style="color:#ae81ff">69</span>
+</span></span></code></pre></div><p>If you see the prompt to enter your key password, that means we&rsquo;re good to go. It&rsquo;s also a good idea to verify that we can&rsquo;t log in with our password anymore:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh wolfgang@ip_address -p <span style="color:#ae81ff">69</span>
+</span></span></code></pre></div><p>This should give us “Permission denied”.</p>
+<p><strong>Creating a server alias</strong></p>
+<p>But you might have noticed that this command is kind of long and annoying to type, so let&rsquo;s fix that. Create a file in the “.ssh” folder in your home directory called “config” and edit it using your favourite text editor:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    nvim ~/.ssh/config
+</span></span></code></pre></div><p>Here we&rsquo;re going to create an alias for our VPS</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>    Host wolfgangsvpn   <span style="color:#75715e"># choose a name for your server</span>
+</span></span><span style="display:flex;"><span>    User    wolgang    <span style="color:#75715e"># the username of the user that we created</span>
+</span></span><span style="display:flex;"><span>    Port <span style="color:#ae81ff">69</span>
+</span></span><span style="display:flex;"><span>    IdentityFile ~/.ssh/id_rsa   <span style="color:#75715e"># that&#39;s the location of our key file</span>
+</span></span><span style="display:flex;"><span>    HostName ip_address  <span style="color:#75715e"># that&#39;s the IP address of our server</span>
+</span></span></code></pre></div><p>Save and close, and now we can login to our server by simply typing:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh wolfgangsvpn.
+</span></span></code></pre></div><p>If you don&rsquo;t want to see this wall of text every time you login, type in:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    touch .hushlogin
+</span></span></code></pre></div><p>If you do not want to deal with config file, you can use <a href="https://termius.com/linux">termius app</a> instead</p>
+<p>Thanks for reading!</p>
+]]></content></item><item><title>Sorting Algorithms and Binary Search in Python</title><link>/posts/sorting-algorithms-and-binary-search-in-python/</link><pubDate>Sun, 24 Apr 2022 14:20:57 +0400</pubDate><guid>/posts/sorting-algorithms-and-binary-search-in-python/</guid><description>Selection Sort Selection sort is about selecting the minimum value in an unsorted array and moving it towards the front by comparing. Here is an example code snippet to implement binary search in Python:
+def selection_sort(list_): length = len(list_) for index in range(length - 1): min = list_[index] for j in range(index+ 1, length): if list_[j] &amp;lt; min: min = list_[j] list_[j], list_[index] = list_[index], list_[j] return list_ unsorted_list = [7,8,9,8,7,6,5,6,7,8,9,8,7,6,5,6,7,8,0] selection_sort(unsorted_list) Buble Sort The bubble sort algorithm is applied by going through an array of data a number of times and at the same time comparing two adjacent numbers at a time in order to reorder them if there are out of order.</description><content type="html"><![CDATA[<h2 id="selection-sort"><strong>Selection Sort</strong></h2>
+<p>Selection sort is about selecting the minimum value in an unsorted array and moving it towards the front by comparing. Here is an example code snippet to implement binary search in Python:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">selection_sort</span>(list_):
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        length <span style="color:#f92672">=</span> len(list_)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> index <span style="color:#f92672">in</span> range(length <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>            min <span style="color:#f92672">=</span> list_[index]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(index<span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, length):
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> list_[j] <span style="color:#f92672">&lt;</span> min:
+</span></span><span style="display:flex;"><span>                    min <span style="color:#f92672">=</span> list_[j]
+</span></span><span style="display:flex;"><span>                    list_[j], list_[index] <span style="color:#f92672">=</span> list_[index], list_[j]
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> list_
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    unsorted_list <span style="color:#f92672">=</span> [<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>    selection_sort(unsorted_list)
+</span></span></code></pre></div><h3 id="buble-sort"><strong>Buble Sort</strong></h3>
+<p>The bubble sort algorithm is applied by going through an array of data a number of times and at the same time comparing two adjacent numbers at a time in order to reorder them if there are out of order. Here is an example snippet written in Python:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">buble_sort</span>(list_):
+</span></span><span style="display:flex;"><span>        boundary <span style="color:#f92672">=</span> len(list_) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(boundary):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> list_[i] <span style="color:#f92672">&gt;</span> list_[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]:
+</span></span><span style="display:flex;"><span>                list_[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>], list_[i] <span style="color:#f92672">=</span> list_[i] ,list_[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> list_
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    buble_sort(unsorted_list)
+</span></span></code></pre></div><h3 id="insertion-sort"><strong>Insertion Sort</strong></h3>
+<p>Insertion Sort algorithm is applied by going through an unsorted list, comparing the current value with the previous one, and in case the previous number is greater we swap them. Here is the code implementation of the insertion sort algorithm in Python:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">insertion_sort</span>(list_a):
+</span></span><span style="display:flex;"><span>        indexing_length <span style="color:#f92672">=</span> range(<span style="color:#ae81ff">1</span>, len(list_a))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> indexing_length:
+</span></span><span style="display:flex;"><span>            value_to_sort <span style="color:#f92672">=</span> list_a[i]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> list_a[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">&gt;</span> value_to_sort <span style="color:#f92672">and</span> i<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>                list_a[i], list_a[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> list_a[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>], list_a[i]
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> list_a
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    print(insertion_sort(unsorted_list))
+</span></span></code></pre></div><h3 id="quicksort"><strong>Quicksort</strong></h3>
+<p>Quick Sort algorithm is applied by choosing a pivot element from an unsorted list and dividing the others into two sub-lists, which we can call less and greater than elements of arrays in comparison to chosen pivot element. Here is the code implementation of quick sort algorithm written in Python:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">quick_sort</span>(list_):
+</span></span><span style="display:flex;"><span>        len_ <span style="color:#f92672">=</span> len(list_)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> len_ <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> list_
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            pivot <span style="color:#f92672">=</span> list_<span style="color:#f92672">.</span>pop()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        l_greater <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>        l_lower <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> element <span style="color:#f92672">in</span> list_:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> element <span style="color:#f92672">&gt;</span> pivot:
+</span></span><span style="display:flex;"><span>                l_greater<span style="color:#f92672">.</span>append(element)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                l_lower<span style="color:#f92672">.</span>append(element)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> quick_sort(l_lower) <span style="color:#f92672">+</span> [pivot] <span style="color:#f92672">+</span> quick_sort(l_greater)
+</span></span><span style="display:flex;"><span>     
+</span></span><span style="display:flex;"><span>    print(quick_sort(unsorted_list))
+</span></span></code></pre></div><p>Quicksort algorithm is considered to be the fastest sorting algorithm as the time complexity of Quicksort is O(n log n) in the best case, O(n log n) in the average case, and O(n^2) in the worst case. But because it has the best performance in the average case for most inputs, Quicksort is generally considered the “fastest” sorting algorithm</p>
+<h3 id="binary-search"><strong>Binary Search</strong></h3>
+<p>The binary search algorithm is applied by finding the middle point of the list and checking if the target number is greater or less than the selected middle point. As only one of these cases will be True, we will find a new middle point and divide the list till the middle point is our target. Here is the code implementation of the binary search algorithm:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">binary_search</span>(sorted_list, target):
+</span></span><span style="display:flex;"><span>        len_ <span style="color:#f92672">=</span> len(sorted_list)
+</span></span><span style="display:flex;"><span>        start <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        end <span style="color:#f92672">=</span> len_ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> start <span style="color:#f92672">&lt;=</span> end:
+</span></span><span style="display:flex;"><span>            mid_index <span style="color:#f92672">=</span> (start <span style="color:#f92672">+</span> end) <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>            print(mid_index)
+</span></span><span style="display:flex;"><span>            mid_ <span style="color:#f92672">=</span> sorted_list[mid_index]
+</span></span><span style="display:flex;"><span>            print(mid_, sorted_list<span style="color:#f92672">.</span>index(mid_))
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> mid_ <span style="color:#f92672">==</span> target:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>, <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;at </span><span style="color:#e6db74">{</span>sorted_list[mid_index]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">elif</span> target <span style="color:#f92672">&lt;</span> mid_:
+</span></span><span style="display:flex;"><span>                end <span style="color:#f92672">=</span> mid_index <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                start <span style="color:#f92672">=</span> mid_index <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    sorted_list <span style="color:#f92672">=</span> insertion_sort(unsorted_list)
+</span></span><span style="display:flex;"><span>    target <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#34;Please enter the target: &#34;</span>))
+</span></span><span style="display:flex;"><span>    print(binary_search(sorted_list, target))
+</span></span></code></pre></div><p>Binary search is more efficient than the linear search; it has a time complexity of O(log n). The list of data must be in sorted order for it to work. &hellip; Its time complexity of O(log n) makes it very fast as compared to other sorting algorithms.</p>
+<p>Thanks for reading!</p>
+]]></content></item><item><title>Map, Sort, and Filter Functions in Python</title><link>/posts/map-sort-and-filter-functions-in-python/</link><pubDate>Sat, 23 Apr 2022 23:03:25 +0400</pubDate><guid>/posts/map-sort-and-filter-functions-in-python/</guid><description>This tutorial will help you to see real example of using map, sort, and filter functions along with lambda functions in Python.
 Map Function Example
 Python&amp;rsquo;s map() is a built-in function that allows you to process and transform all the items in an iterable without using an explicit for loop, a technique commonly known as mapping. map() is useful when you need to apply a transformation function to each item in an iterable and transform them into a new iterable.</description><content type="html"><![CDATA[<p>This tutorial will help you to see real example of using map, sort, and filter functions along with lambda functions in Python.</p>
 <p><strong>Map Function Example</strong></p>
