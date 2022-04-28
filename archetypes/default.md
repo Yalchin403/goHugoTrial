@@ -1,6 +1,9 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
-draft: true
+draft: false
+cover: "blog-images/"
+useRelativeCover: true
+tags: [""]
 ---
 
