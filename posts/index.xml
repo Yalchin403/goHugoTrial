@@ -8,7 +8,7 @@ purely tech related.</p>
 <p>Well, there are a number of reasons, I&rsquo;m not sure if you will take them as compelling reasons or not.
 First, I was already decisive that I need to replace my phone with the new one, as I have been already using the previous one
 for around 4 years as of now. I was planning to pick up one of the flagship Android phones, but one thing changed my mind. <strong>THE SCREEN</strong>
-So, any Android market currently popular in the market and considering it to be flagship has huge screen which is the thing
+So, any Android model currently popular in the market and considering it to be flagship has huge screen which is the thing
 in the mobile phones that drives me crazy. I remember I made about one month of research before choosing my previous phone
 and during that time I lived without phone, just because I didn&rsquo;t want to choose the wrong one. The only thing I forgot
 to pay attention while choosing it was its screen, it was perfectly made for my need but the screen&hellip; It&rsquo;s about 6.5&quot; and
@@ -18,7 +18,7 @@ I always struggled to use it when I was using one of my hands. Apart from that i
 <li>About 4000 mAH (which was more than enough for me to use it full 1 day)</li>
 <li>Its camera was okay for me as I&rsquo;m not selfie lover (I mostly use it to capture objects (normal objects :D))</li>
 <li>Both 3.5 mm headphone jack and charging slot were mounted to the bottom of the screen (This makes it comfortable if
-you want plug the power-bank in and also use your headphone and put your phone into your pocket upside down :D)</li>
+you want to plug the power-bank in and also use your headphone and put your phone into your pocket upside down :D)</li>
 <li>Its durability, hardware, and design was okay for me</li>
 <li>Its os was Android, so I knew that customizing and using Google&rsquo;s ecosystem would not be a problem for me</li>
 </ul>
@@ -75,7 +75,7 @@ my post-graduate master&rsquo;s degree acceptance from Hungary in Mobile Develop
 <p>Well, I researched some problems, solved some of them, but I need to live with some of them. Surprisingly, I&rsquo;m getting used to it.
 Disturbing alarms, calculator, and unsupported apps like Google Maps (for political or economic reasons) are still of a problem.
 But honestly, I don&rsquo;t feel like I&rsquo;m missing something from the world just because I don&rsquo;t use Android. Each of them has its own
-special advantages and well, people will decide based on their priorities like did with screen size.</p>
+special advantages and well, people will decide based on their priorities like I did with screen size.</p>
 <p><strong>Thanks for reading!</strong></p>
 ]]></content></item><item><title>Accent and Case Insensitive Search and Minimum Distance Calculator in Pymongo</title><link>/posts/mongo_db_autocomplete/</link><pubDate>Thu, 28 Apr 2022 14:22:27 +0400</pubDate><guid>/posts/mongo_db_autocomplete/</guid><description>Ellaborate case Before starting with set up and everything, I would love to confess that I find Mongodb and Python combination as pain in the ass. Recently I have got an job offer as Python/Flask developer in one of the local companies in my country. They are using Mongodb as their production database. They requested a little bit of task to accomplish before we move on to HR interview. So the task was about coding autocomplete search logic and also finding the closest location to our current location from the database.</description><content type="html"><![CDATA[<h1 id="ellaborate-case">Ellaborate case</h1>
 <p>Before starting with set up and everything, I would love to confess that I find Mongodb and Python combination as <strong>pain in the ass</strong>. Recently I have got an job offer as Python/Flask developer in one of the local companies in my country. They are using Mongodb as their production database. They requested a little bit of task to accomplish before we move on to HR interview. So the task was about coding autocomplete search logic and also finding the closest location to our current location from the database. Task seems interesting and pretty much easy to solve, at least for me as a Django developer who have used Postgresql as default database in most of the cases. However, seemed like things don&rsquo;t go so well with Mongodb in django. It seemed like if Python is envolved, we normally have two pypi packages two use, namely <a href="https://pymongo.readthedocs.io/en/stable/">pymongo</a> and <a href="https://docs.mongoengine.org/">mongoengine</a>. I was familiar with pymongo as in my <a href="https://t.me/mp3converteryoutubebot">telegram bot</a> I use Mongodb as database and use pymongo to implement database actions. Hence, below I will explain how I implemented case and accent insensitive search and minimum distance finding via pymongo.</p>
