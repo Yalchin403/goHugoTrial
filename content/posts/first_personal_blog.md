@@ -17,7 +17,7 @@ purely tech related.
 Well, there are a number of reasons, I'm not sure if you will take them as compelling reasons or not.
 First, I was already decisive that I need to replace my phone with the new one, as I have been already using the previous one
 for around 4 years as of now. I was planning to pick up one of the flagship Android phones, but one thing changed my mind. **THE SCREEN**
-So, any Android market currently popular in the market and considering it to be flagship has huge screen which is the thing 
+So, any Android model currently popular in the market and considering it to be flagship has huge screen which is the thing 
 in the mobile phones that drives me crazy. I remember I made about one month of research before choosing my previous phone
 and during that time I lived without phone, just because I didn't want to choose the wrong one. The only thing I forgot
  to pay attention while choosing it was its screen, it was perfectly made for my need but the screen... It's about 6.5" and 
@@ -26,7 +26,7 @@ I always struggled to use it when I was using one of my hands. Apart from that i
 - About 4000 mAH (which was more than enough for me to use it full 1 day)
 - Its camera was okay for me as I'm not selfie lover (I mostly use it to capture objects (normal objects :D))
 - Both 3.5 mm headphone jack and charging slot were mounted to the bottom of the screen (This makes it comfortable if 
-you want plug the power-bank in and also use your headphone and put your phone into your pocket upside down :D)
+you want to plug the power-bank in and also use your headphone and put your phone into your pocket upside down :D)
 - Its durability, hardware, and design was okay for me
 - Its os was Android, so I knew that customizing and using Google's ecosystem would not be a problem for me
 
@@ -91,6 +91,6 @@ my post-graduate master's degree acceptance from Hungary in Mobile Development.
 Well, I researched some problems, solved some of them, but I need to live with some of them. Surprisingly, I'm getting used to it.
 Disturbing alarms, calculator, and unsupported apps like Google Maps (for political or economic reasons) are still of a problem.
 But honestly, I don't feel like I'm missing something from the world just because I don't use Android. Each of them has its own
-special advantages and well, people will decide based on their priorities like did with screen size.
+special advantages and well, people will decide based on their priorities like I did with screen size.
 
 **Thanks for reading!**
