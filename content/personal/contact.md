@@ -1,8 +1,10 @@
 ---
-title: "Contact"
-date: 2022-04-23T02:30:25+04:00
-draft: false
+title: Contact
+date: 2022-04-23T02:30:25.000+04:00
+
 ---
-##### Phone := +994 70 501 9780
-##### Email := yalchinmammadli@yalchin.info
+##### Phone := +36 20 4230314
+
+##### Email := yalchinmammadli@outlook.com
+
 ##### Telegram := @mrRootLog
