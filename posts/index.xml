@@ -353,46 +353,6 @@ following commands:</p>
 <div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh -T github.com
 </span></span></code></pre></div><p>It should say you have successfully set up SSH key authentication if you have done so :)</p>
 <p>Thanks for reading!</p>
-]]></content></item><item><title>How to Set Up Mailgun in Django</title><link>/posts/how-to-set-up-mailgun-in-django/</link><pubDate>Sat, 23 Apr 2022 20:41:10 +0400</pubDate><guid>/posts/how-to-set-up-mailgun-in-django/</guid><description>In this tutorial, I will try to cover configuring a custom domain for sending emails in your application. The benefit of using mailgun is that it allows you to send (5,000) emails for free during the first three months (then you will pay $0.8 per 1,000 emails) and its setup procedure is so straightforward. You will only need to add your payment verification to be able to send emails without any restrictions.</description><content type="html"><![CDATA[<p>In this tutorial, I will try to cover configuring a custom domain for sending emails in your application. The benefit of using mailgun is that it allows you to send (5,000) emails for free during the first three months (then you will pay $0.8 per 1,000 emails) and its setup procedure is so straightforward. You will only need to add your payment verification to be able to send emails without any restrictions.</p>
-<h3 id="sign-up--sign-in"><strong>Sign up &amp; Sign in</strong></h3>
-<p><strong><img src="https://yalchin.info/media/images/mailgun-signup.png" alt=""></strong></p>
-<p>If you don&rsquo;t have an account yet, go to <a href="https://mailgun.com">mailgun</a> and sign up with your email, then add your payment verification.</p>
-<p>In the <strong>Domains</strong> section of the website, click on add new domain to include your custom domain. For this tutorial only, let&rsquo;s say our domain is yalchin.info. You can include only the domain name, but mailgun recommends including a subdomain, so I will continue with mg.yalchin.info.![](</p>
-<p>https:yalchin.info/media/images/mailgun-add-domain.png)</p>
-<p>After choosing the domain name click on <strong>Add Domain</strong> button.</p>
-<h3 id="adding-dns-records"><strong>Adding DNS Records</strong></h3>
-<p>After clicking to <strong>Add Domain</strong> button you will be prompted to a page to add DNS records and verify that you are the one who really owns the domain.</p>
-<p>Now go to your <strong>DNS provider</strong>, in my case I&rsquo;m using <strong>Namecheap</strong>. Navigate to advanced DNS settings, and start to add DNS records shown on mailgun domain verification page.</p>
-<p><img src="https://yalchin.info/media/images/mailgun-txt-record.png" alt=""></p>
-<p>Now, while adding txt records make sure that if you are using a subdomain like me (mg.yalchin.info), you don&rsquo;t need to add mg.yalchin.info for hostname, just include mg for the hostname or whatever you chose as a sub-name. <strong>Hence from now on, you don&rsquo;t need to include the original domain name while adding hostname, just include prefix before the original domain name. If you don&rsquo;t use a subdomain and instead you are using the original domain then put @ sign for the hostname.</strong> Then copy and paste appropriate values.</p>
-<p>The same procedure applies to adding <strong>CNAME and MX records.</strong> Just like this:</p>
-<p><img src="https://yalchin.info/media/images/mailgun-cname-record.png" alt=""></p>
-<p>After you are done, go back to mailgun DNS verification page, and click on verify button. If you added DNS records correctly, it will probably be verified within minutes, but theoretically, it can take 24-48 hours to be verified. After verifying, you are good to copy your credentials from mailgun and paste into <strong>settings.py</strong> in your django project. Just like shown beneath:</p>
-<h3 id="setup-settingspy"><strong>Setup settings.py</strong></h3>
-<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    EMAIL_HOST <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#39;smtp.mailgun.org&#39;</span>
-</span></span><span style="display:flex;"><span>    EMAIL_PORT <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">587</span>
-</span></span><span style="display:flex;"><span>    EMAIL_HOST_USER <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#39;mg@mail.yalchin.info&#39;</span>
-</span></span><span style="display:flex;"><span>    EMAIL_HOST_PASSWORD <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#39;yourSupersecrectPassword&#39;</span>
-</span></span><span style="display:flex;"><span>    EMAIL_USE_TLS <span style="color:#5bc4bf">=</span> <span style="color:#815ba4">True</span>
-</span></span></code></pre></div><p><strong>Warning:</strong></p>
-<p><strong>Do not include your password</strong> in the settings.py, but include them via the .env file and ignore the .env file with .gitignore; otherwise, your password can be leaked.</p>
-<h3 id="send-email"><strong>Send Email</strong></h3>
-<p>In order to send emails in Django, you can use libraries and code snippet below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#5bc4bf">from</span> <span style="color:#fec418">django.core.mail</span> <span style="color:#5bc4bf">import</span> send_mail
-</span></span><span style="display:flex;"><span>    <span style="color:#5bc4bf">from</span> <span style="color:#fec418">portfolio.settings</span> <span style="color:#5bc4bf">import</span> EMAIL_HOST_USER   <span style="color:#776e71"># import your email</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#5bc4bf">from</span> <span style="color:#fec418">django.core.mail</span> <span style="color:#5bc4bf">import</span> EmailMessage
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    email_body <span style="color:#5bc4bf">=</span><span style="color:#48b685">&#34;Yea we did it!&#34;</span>
-</span></span><span style="display:flex;"><span>    email <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;emailYouWantedToSendMessageTo@example.com&#34;</span>
-</span></span><span style="display:flex;"><span>    msg <span style="color:#5bc4bf">=</span> EmailMessage(
-</span></span><span style="display:flex;"><span>                    <span style="color:#48b685">&#34;First Email Ever&#34;</span>,
-</span></span><span style="display:flex;"><span>                    email_body,
-</span></span><span style="display:flex;"><span>                    EMAIL_HOST_USER,
-</span></span><span style="display:flex;"><span>                    [email]
-</span></span><span style="display:flex;"><span>    )
-</span></span><span style="display:flex;"><span>                msg<span style="color:#5bc4bf">.</span>content_subtype <span style="color:#5bc4bf">=</span> <span style="color:#48b685">&#34;html&#34;</span>   <span style="color:#776e71"># so that you can format you message with html tags</span>
-</span></span><span style="display:flex;"><span>                msg<span style="color:#5bc4bf">.</span>send()
-</span></span></code></pre></div><p><strong>Thanks for reading!</strong></p>
 ]]></content></item><item><title>How to Deploy NodeJs App</title><link>/posts/how-to-deploy-nodejs-app/</link><pubDate>Sat, 23 Apr 2022 20:33:34 +0400</pubDate><guid>/posts/how-to-deploy-nodejs-app/</guid><description>In this tutorial, we will be deploying a simple URL shortener API built-in express framework of NodeJs. It is pretty simple, uses MongoDB as its database, and you can find its source code: https://yalchin.ml/Cq93RQ.
 As a VPS, I use a Linode ubuntu server, and I assume that you have at least some basic knowledge when it comes to Linux.
 Install Node and NPM curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - sudo apt install nodejs # verify that bash is installed node --version Clone your Repo git clone [link to your github repo] Install npm dependency packages cd yourproject npm install npm start (or whatever your start command) # stop app ctrl+C To be able to run our app in the background continuously, we will be using a package called PM2.</description><content type="html"><![CDATA[<p>In this tutorial, we will be deploying a simple URL shortener API built-in express framework of NodeJs. It is pretty simple, uses MongoDB as its database, and you can find its source code: <a href="https://yalchin.ml/Cq93RQ">https://yalchin.ml/Cq93RQ</a>.</p>
