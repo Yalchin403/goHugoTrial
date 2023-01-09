@@ -297,62 +297,6 @@ Using a cleartext password to log in to your server is never a good idea since t
 <div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    touch .hushlogin
 </span></span></code></pre></div><p>If you do not want to deal with config file, you can use <a href="https://termius.com/linux">termius app</a> instead</p>
 <p>Thanks for reading!</p>
-]]></content></item><item><title>How to Set Up GitHub Ssh Key</title><link>/posts/how-to-set-up-github-ssh-key/</link><pubDate>Sat, 23 Apr 2022 20:49:33 +0400</pubDate><guid>/posts/how-to-set-up-github-ssh-key/</guid><description>Github SSH Key set up
-This tutorial will help you to be able to set up SSH key connection to your github account on a Linux machine. You can also continue to read this tutorial if you want to set up Deploy Keys.
-For now let&amp;rsquo;s just assume that you&amp;rsquo;ve successfully set up SSH key, after that you need to make sure that you don&amp;rsquo;t access your repo with HTTPS, but with ssh, so if you previously cloned your repo wirh https set it to ssh as below:</description><content type="html"><![CDATA[<p><strong>Github SSH Key set up</strong></p>
-<p>This tutorial will help you to be able to set up SSH key connection to your github account on a <strong>Linux</strong> machine. You can also continue to read this tutorial if you want to set up <strong><em>Deploy Keys</em></strong>.</p>
-<p>For now let&rsquo;s just assume that <strong>you&rsquo;ve successfully set up SSH key</strong>, after that you need to make sure that you don&rsquo;t access your repo with HTTPS, but with ssh, so if you previously cloned your repo wirh https set it to ssh as below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    git remote set-url origin git@github.com:yourUsername/nameOfRepo.git
-</span></span></code></pre></div><p>Now let&rsquo;s come back to SSH generation part&hellip;</p>
-<p>Navigate to <code>~/.ssh</code> directory
-Execute:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh-keygen -t rsa -b <span style="color:#f99b15">4096</span> -C <span style="color:#48b685">&#34;yourGithubEmail&#34;</span>
-</span></span></code></pre></div><p>If you press enter:</p>
-<p>By default id_rsa named public and private keys will be generated.</p>
-<p>You can also specify it</p>
-<p>Then will be prompted to enter passphrase</p>
-<p>You can again press enter and skip it (you won&rsquo;t have passphrase in this case), or you can set up passphrase by specifying</p>
-<p>Now keys should be generated.</p>
-<p>(execute ls to see them)</p>
-<ul>
-<li>Copy content of public key (generated file with .pub extension)</li>
-<li>Go to ssh key section of github in the settings</li>
-<li>Click on new ssh key</li>
-<li>Give a title</li>
-<li>In the publick key box, paste what you&rsquo;ve copied.</li>
-<li>Save it.</li>
-</ul>
-<p>Now come back to terminal, in the .ssh directory, create config file</p>
-<p>You can create by either:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    touch config
-</span></span></code></pre></div><p>Or</p>
-<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    vi config
-</span></span></code></pre></div><p>Paste this into config file</p>
-<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    Host github.com
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    User git
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    Port <span style="color:#f99b15">22</span>
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    Hostname github.com
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    IdentityFile ~/.ssh/nameOfYourPrivateKey
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    TCPKeepAlive yes
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    IdentiesOnly yes <span style="color:#776e71"># if it throws error about this line delete or comment out  </span>
-</span></span></code></pre></div><p><em>Here make sure that you changed IdentityFile&rsquo;s path with the path that points to your own private key</em></p>
-<p><strong>Save the file and exit</strong></p>
-<p>Execute
-following commands:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    eval <span style="color:#48b685">&#34;</span><span style="color:#815ba4">$(</span>ssh-agent -s<span style="color:#815ba4">)</span><span style="color:#48b685">&#34;</span>
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    ssh-add ~/.ssh/nameOfYourPrivateKey
-</span></span></code></pre></div><p>You should be good to go now :)</p>
-<p>Test your ssh connection by:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    ssh -T github.com
-</span></span></code></pre></div><p>It should say you have successfully set up SSH key authentication if you have done so :)</p>
-<p>Thanks for reading!</p>
 ]]></content></item><item><title>How to Deploy NodeJs App</title><link>/posts/how-to-deploy-nodejs-app/</link><pubDate>Sat, 23 Apr 2022 20:33:34 +0400</pubDate><guid>/posts/how-to-deploy-nodejs-app/</guid><description>In this tutorial, we will be deploying a simple URL shortener API built-in express framework of NodeJs. It is pretty simple, uses MongoDB as its database, and you can find its source code: https://yalchin.ml/Cq93RQ.
 As a VPS, I use a Linode ubuntu server, and I assume that you have at least some basic knowledge when it comes to Linux.
 Install Node and NPM curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - sudo apt install nodejs # verify that bash is installed node --version Clone your Repo git clone [link to your github repo] Install npm dependency packages cd yourproject npm install npm start (or whatever your start command) # stop app ctrl+C To be able to run our app in the background continuously, we will be using a package called PM2.</description><content type="html"><![CDATA[<p>In this tutorial, we will be deploying a simple URL shortener API built-in express framework of NodeJs. It is pretty simple, uses MongoDB as its database, and you can find its source code: <a href="https://yalchin.ml/Cq93RQ">https://yalchin.ml/Cq93RQ</a>.</p>
