@@ -29,3 +29,5 @@ fields:
   type: tag_list
   default: []
   label: tags
+pages:
+- content/posts/getting-into-apple-s-eco-system-how-does-it-feel.md
