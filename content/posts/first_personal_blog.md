@@ -1,10 +1,12 @@
 ---
-title: "First Personal Blog"
-date: 2022-05-13T22:31:31+04:00
-draft: false
-cover: "blog-images/personal_blog.jpeg"
+title: Why I decided to switch to Iphone?
+date: 2022-05-13T22:31:31.000+04:00
+cover: ''
 useRelativeCover: true
-tags: ["Personal"]
+tags:
+- Personal
+draft: true
+
 ---
 So far I was trying to keep this website's content identical to yalchin.info/blog which is my
 main website where I mainly write mixed tech blogs to solve some problems. I usually write those blogs not because I'm
