@@ -5,7 +5,6 @@ cover: blog-images/phonap.webp
 useRelativeCover: true
 tags:
 - Personal
-draft: true
 
 ---
 So far I was trying to keep this website's content identical to yalchin.info/blog which is my
