@@ -1,7 +1,7 @@
 ---
 title: Why I decided to switch to Iphone?
 date: 2022-05-13T22:31:31.000+04:00
-cover: ''
+cover: blog-images/phonap.webp
 useRelativeCover: true
 tags:
 - Personal
